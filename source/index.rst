@@ -13,6 +13,11 @@ Welcome to OPTIMake's documentation!
    about_optimake/index
    problem_formulation/index
    algorithm_overview/index
+   codegen/index
+   interface/index
+   examples/index
+   future_features/index
+   faq/index
 
 Indices and tables
 ==================
