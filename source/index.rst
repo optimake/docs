@@ -10,7 +10,7 @@ Welcome to OPTIMake's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   about_optimake/index
 
 Indices and tables
 ==================
