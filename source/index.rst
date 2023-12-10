@@ -11,6 +11,8 @@ Welcome to OPTIMake's documentation!
    :caption: Contents:
 
    about_optimake/index
+   problem_formulation/index
+   algorithm_overview/index
 
 Indices and tables
 ==================
