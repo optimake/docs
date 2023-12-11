@@ -11,7 +11,7 @@ OPTIMake
 OPTIMake是一套专注于开发机器人飞行器以及无人驾驶等领域中的下一代模型预测控制(MPC)系统基础性工具。
 我们的专业知识涵盖先进的多变量控制设计、最先进的优化算法以及高效稳健的软件实现。
 
-Optimizaton, make it possible!
+Optimization, make it possible!
 
 .. toctree::
    :maxdepth: 2
