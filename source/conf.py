@@ -16,6 +16,8 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import recommonmark
+from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
@@ -49,7 +51,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'recommonmark',
-    'sphinx_markdown_tables'
+    'sphinx_markdown_tables',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -203,3 +205,22 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+def setup(app):
+     app.add_config_value('recommonmark_config', {
+             'enable_auto_toc_tree': True,
+             'auto_toc_tree_section': 'Contents',
+             'enable_eval_rst': True,
+             'enable_inline_math':True,
+             'enable_math':True
+             }, True)
+     app.add_transform(AutoStructify)
+     app.add_stylesheet('css/custom.css')
+
+# numfig = True
+# math_numfig = True
+# numfig_secnum_depth = 2
+# math_eqref_format = "Eq.{number}"
+mathjax_config = {
+    'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}},
+}
