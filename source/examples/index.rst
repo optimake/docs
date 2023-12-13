@@ -21,7 +21,7 @@
 
 式(1) 中， :math:`(x, y, z)` 为导弹的三维位置， :math:`r = 1 + y` 为导弹质心到地心距离，
 :math:`V` 为速度， :math:`γ` 为弹道倾角， :math:`ψ` 为弹道偏角；
-射程 :math:`x` 、射高 :math:`y` 以及侧向位置 :math:`z` 通过地球半径 :math:`R0` 进行无量纲化，
+射程 :math:`x` 、射高 :math:`y` 以及侧向位置 :math:`z` 通过地球半径 :math:`R_0` 进行无量纲化，
 速度 :math:`V` 通过 :math:`\sqrt{g_0 R_0}` 进行无量纲化，其中，:math:`g_0` 为地球表面的重力加速度。
 上述方程对无量纲时间 :math:`t` 求导，时间 :math:`t` 通过 :math:`\sqrt{g_0/R_0}` 进行无量纲化。 :math:`\rho` 为滚转角；
 :math:`L =  \tfrac{1}{2} R_0 \rho V^2 C_L/m` 为无量纲升力， :math:`D = \tfrac{1}{2} R_0 \rho V^2 C_D/m` 为无量纲阻力，其中 :math:`S` 
