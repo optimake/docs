@@ -199,7 +199,7 @@ epub_exclude_files = ['search.html']
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+# intersphinx_mapping = {'https://docs.python.org/': None}
 
 # -- Options for todo extension ----------------------------------------------
 
@@ -215,7 +215,7 @@ def setup(app):
              'enable_math':True
              }, True)
      app.add_transform(AutoStructify)
-     app.add_stylesheet('css/custom.css')
+     app.add_css_file('css/custom.css')
 
 # numfig = True
 # math_numfig = True
