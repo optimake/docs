@@ -215,7 +215,7 @@ def setup(app):
              'enable_math':True
              }, True)
      app.add_transform(AutoStructify)
-     app.add_css_file('css/custom.css')
+     app.add_stylesheet('css/custom.css') # add_css_file
 
 # numfig = True
 # math_numfig = True
