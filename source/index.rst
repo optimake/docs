@@ -20,6 +20,7 @@ OPTIMake是一套专注于开发机器人飞行器以及无人驾驶等领域中
    about_optimake/index
    installation/index
    modeling_interface/index
+   codegen_interface/index
    solving_interface/index
    deploy/index
    examples/index

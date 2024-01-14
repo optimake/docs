@@ -6,7 +6,7 @@
 
 
 ----------
-问题定义
+问题支持
 ----------
 .. 我们首先考虑形式为的连续时间非线性最优控制问题:
 
@@ -64,7 +64,7 @@
 
 .. .. [1] Bock, H.: Randwertproblemmethoden zur Parameteridentifizierung in Systemen nichtlinearer Differentialgleichungen, Bonner Mathematische Schriften, vol. 183. Universität Bonn, Bonn (1987)
 
-OPTIMake solver求解以下的优化问题：
+OPTIMake求解以下的优化问题：
 
 .. math::
     \begin{equation*}
@@ -92,34 +92,185 @@ OPTIMake solver求解以下的优化问题：
 
 
 ----------
+问题定义
+----------
+下面为定义问题的例子：
+
+.. code-block:: python
+
+    prob = multi_stage_problem(name='vehicle', N=10)
+
+其中，函数入参的定义如下：
+
+- name: str
+    问题的名称，该名称会用在生成代码的文件名，函数名等。
+
+- N: int
+    问题的stage数目，必须大于等于1。
+
+--------------
+parameter定义
+--------------
+
+parameter为在优化过程中不变的量，由用户在调用求解前给定，比如车身长度length，质量mass。
+
+OPTIMake支持两种类型的parameter：stage-independent parameter与stage-dependent parameter。
+stage-dependent parameter在不同stage可以有不同的值，
+而stage-independent parameter在所有stage的值都一致（可以节约存储与简化设置）。
+
+下面为定义优化变量的例子：
+
+.. code-block:: python
+
+    length = prob.parameter(name='length', stage_dependent=False)
+    mass = prob.parameter('mass')
+    xLowerBound = prob.parameter('xLowerBound', stage_dependent=True)
+
+其中，函数入参的定义如下：
+
+- name: str
+    parameter的名称。
+
+- stage_dependent: bool, optional
+    parameter是否为stage-dependent。
+    默认值为True，表示parameter为stage-dependent。
+
+
+
+.. 亦或者通过list的方式定义：
+
+.. .. code-block:: python
+
+..     length, mass, xLowerBound = prob.parameters(['length', 'mass', 'xLowerBound'], stage_dependent=False)
+
+
+-----------------
 优化变量定义
-----------
+-----------------
+
+优化变量为在优化过程中变化的量，比如车辆的转角控制量delta，位置状态x，y。
+在定义优化变量时，可以同时定义优化变量的硬边界、软边界以及违反软边界时的惩罚。
+
+下面为定义优化变量的例子：
+
+.. code-block:: python
+
+    delta = prob.variable(name='delta', hard_lowerbound=-0.5, hard_upperbound=0.5)
+
+    # xLowerBound与xUpperBound为已定义的parameter
+    x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound,
+                      soft_lowerbound=-0.2, soft_upperbound=0.2,
+                      weight_soft_lowerbound=100.0, weight_soft_upperbound=100.0,
+                      penalty_type_soft_lowerbound='quadratic',
+                      penalty_type_soft_upperbound='l1')
+    y = prob.variable('y')
+
+.. 亦或者通过list的方式定义：
+
+.. .. code-block:: python
+
+..     delta, x, y = prob.variables(name=['delta', 'x', 'y'], 
+..                                  hard_lowerbound=[-0.5, xLowerBound, None],
+..                                  hard_upperbound=[0.5, xUpperBound, None],
+..                                  soft_lowerbound=[None, -0.2, None],
+..                                  soft_upperbound=[None, 0.2, None],
+..                                  weight_soft_lowerbound=[None, 100.0, None],
+..                                  weight_soft_upperbound=[None, 100.0, None],
+..                                  penalty_type_soft_lowerbound=['quadratic', 'quadratic', 'quadratic'],
+..                                  penalty_type_soft_upperbound=['quadratic', 'l1', 'quadratic'])
+
+其中，函数入参的定义如下：
+
+- name: str
+    优化变量的名称。
+
+- hard_lowerbound: float或参数, optional
+    硬下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。  
+
+- hard_upperbound: float或参数, optional
+    硬上界，即优化变量的最大值。
+    默认值为inf，表示无上界。
+
+- soft_lowerbound: float或参数, optional
+    软下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。
+
+- soft_upperbound: float或参数, optional
+    软上界，即优化变量的最小值与最大值。
+    默认值为inf，表示无下界与上界。
+
+- weight_soft_lowerbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。
+
+- weight_soft_upperbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。
+
+- penalty_type_soft_lowerbound: str, optional
+    软下界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。
+
+- penalty_type_soft_upperbound: str, optional
+    软上界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。
+
 
 ----------
-参数定义
+cost定义
 ----------
 
-----------
-Cost定义
-----------
-
-----------
+------------------
 等式约束定义
-----------
+------------------
 
-----------
+------------------
 不等式约束定义
-----------
+------------------
 
-----------
+------------------
 起点约束定义
-----------
+------------------
 
+起点约束描述了第一个优化变量 :math:`v_1` 是否为固定值，比如在车辆轨迹规划问题中的车辆初始状态约束。
 
-----------
+下面为定义起点约束的例子：
+
+.. code-block:: python
+
+    # x0, y0, phi0为已定义的parameter
+    prob.fixed_start_variable(var=x, value=x0)
+    prob.fixed_start_variable(y, y0)
+    prob.fixed_start_variable(phi, phi0)
+
+其中，函数入参的定义如下：
+
+- var: 优化变量
+    需要在起点固定的优化变量。
+
+- value: float或参数
+    起点优化变量的值。
+
+------------------
 终点约束定义
-----------
+------------------
 
-----------
-代码生成
-----------
+终点约束描述了最后一个优化变量 :math:`v_N` 是否为固定值，比如在火箭着陆轨迹规划问题中的末端零速度约束。
+
+下面为定义终点约束的例子：
+
+.. code-block:: python
+
+    # x0, y0, phi0为已定义的parameter
+    prob.fixed_start_variable(var=v, value=0.0)
+    prob.fixed_start_variable(phi, 0.0)
+
+其中，函数入参的定义如下：
+
+- var: 优化变量
+    需要在终点固定的优化变量。
+
+- value: float或参数
+    终点优化变量的值。
+
