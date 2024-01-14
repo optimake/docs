@@ -47,7 +47,7 @@
    u_1 = L \cos \sigma,  u_2 = L \sin \sigma  \label{4} \tag{4}
 
 .. table:: 导弹参数
-   :name: table-gridtable
+   :name: table-missile
 
    +--------+----------------------+----------------------+----------------------+----------------------+-----------------+
    | 参数   |  :math:`m`           | :math:`S_{ref}`      |  :math:`g_0`         | :math:`C_{D_0}`      | :math:`K_{m}`   |
