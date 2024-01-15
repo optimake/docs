@@ -1,0 +1,1051 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Build Your Ultrafast Solver">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../deploy/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>使用接口 - OPTIMake</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interfaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OPTIMake" class="md-header__button md-logo" aria-label="OPTIMake" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPTIMake
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              使用接口
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OPTIMake" class="md-nav__button md-logo" aria-label="OPTIMake" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OPTIMake
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    使用接口
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    使用接口
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题支持
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题定义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      parameter定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      优化变量定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      等式约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      不等式约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      起点约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      终点约束定义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    代码部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/exp_damper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semi-active Damper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/exp_double_pendulum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Double Inverted Pendulum on a Cart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/exp_quadrotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quadrotor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/exp_vehicle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/exp_heli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helicopter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题支持
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题定义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="问题定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      parameter定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      优化变量定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      等式约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      不等式约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      起点约束定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      终点约束定义
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="interfaces">Interfaces</h1>
+<p>该章节介绍OPTIMake支持的问题类型，以及如何通过OPTIMake提供的建模接口定义问题。</p>
+<h2 id="_1">问题支持</h2>
+<p>我们首先考虑形式为的连续时间非线性最优控制问题:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{array}{cll}
+\underset{x(\cdot), z(\cdot), u(\cdot)}{\operatorname{minimize}} &amp; \int_{0}^{T} \ell(x(t), z(t), u(t)) \mathrm{d} t+M(x(T)) \\
+\text { subject to } &amp; x(0)=\bar{x}_{0}, &amp; \\
+&amp; 0=f(\dot{x}(t), x(t), z(t), u(t)), &amp; t \in[0, T], \\
+&amp; 0 \geq g(x(t), z(t), u(t)), &amp; t \in[0, T] .
+\end{array}</div>
+<script type="math/tex; mode=display">\begin{array}{cll}
+\underset{x(\cdot), z(\cdot), u(\cdot)}{\operatorname{minimize}} & \int_{0}^{T} \ell(x(t), z(t), u(t)) \mathrm{d} t+M(x(T)) \\
+\text { subject to } & x(0)=\bar{x}_{0}, & \\
+& 0=f(\dot{x}(t), x(t), z(t), u(t)), & t \in[0, T], \\
+& 0 \geq g(x(t), z(t), u(t)), & t \in[0, T] .
+\end{array}</script>
+</div>
+<p>在这个符号中，<span class="arithmatex"><span class="MathJax_Preview">\mathbb{R} \rightarrow \mathbb{R}^{n_{x}}</span><script type="math/tex">\mathbb{R} \rightarrow \mathbb{R}^{n_{x}}</script></span> 表示微分状态，<span class="arithmatex"><span class="MathJax_Preview">\mathbb{R} \rightarrow \mathbb{R}^{n_{z}}</span><script type="math/tex">\mathbb{R} \rightarrow \mathbb{R}^{n_{z}}</script></span> 是代数变量，<span class="arithmatex"><span class="MathJax_Preview">\mathbb{R} \rightarrow \mathbb{R}^{n_{u}}</span><script type="math/tex">\mathbb{R} \rightarrow \mathbb{R}^{n_{u}}</script></span> 表示控制输。
+此外，我们使用 <span class="arithmatex"><span class="MathJax_Preview">\ell: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times \mathbb{R}^{n_{u}} \rightarrow \mathbb{R}</span><script type="math/tex">\ell: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times \mathbb{R}^{n_{u}} \rightarrow \mathbb{R}</script></span> 表示拉格朗日项或过程cost，<span class="arithmatex"><span class="MathJax_Preview">M:\mathbb{R} \rightarrow \mathbb{R}^{n_{x}}</span><script type="math/tex">M:\mathbb{R} \rightarrow \mathbb{R}^{n_{x}}</script></span> 表示Mayer项或终端cost。
+动力学模型采用一组右侧为 <span class="arithmatex"><span class="MathJax_Preview">f: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times\mathbb{R}^{n_{u}} \rightarrow \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}}</span><script type="math/tex">f: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times\mathbb{R}^{n_{u}} \rightarrow \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}}</script></span>的隐式微分代数方程(DAE)。
+其余部分，我们假设隐式DAE的索引为1，即，<span class="arithmatex"><span class="MathJax_Preview">\partial f /(\partial \dot{x}, \partial z)</span><script type="math/tex">\partial f /(\partial \dot{x}, \partial z)</script></span> 。
+非线性路径约束由<span class="arithmatex"><span class="MathJax_Preview">g: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times \mathbb{R}^{n_{u}} \rightarrow \mathbb{R}^{n_{g}}</span><script type="math/tex">g: \mathbb{R}^{n_{x}} \times \mathbb{R}^{n_{z}} \times \mathbb{R}^{n_{u}} \rightarrow \mathbb{R}^{n_{g}}</script></span>
+给出，并且状态的初始值是<span class="arithmatex"><span class="MathJax_Preview">\bar{x}_{0} \in \mathbb{R}^{n_{x}}</span><script type="math/tex">\bar{x}_{0} \in \mathbb{R}^{n_{x}}</script></span> 。</p>
+<ul>
+<li>Multiple shooting 离散</li>
+</ul>
+<p>在OPTIMake中，我们用Multi-Shooting方法离散非线性最优控制问题。
+我们引入了一个时间离散点列 <span class="arithmatex"><span class="MathJax_Preview">[t_0，t_1r,...,t_N]</span><script type="math/tex">[t_0，t_1r,...,t_N]</script></span> <span class="arithmatex"><span class="MathJax_Preview">( t_k＜t_{k+1}，k=0，...，N−1 )</span><script type="math/tex">( t_k＜t_{k+1}，k=0，...，N−1 )</script></span>，
+离散状态变量 <span class="arithmatex"><span class="MathJax_Preview">x_0,...,x_N</span><script type="math/tex">x_0,...,x_N</script></span> ，代数变量 <span class="arithmatex"><span class="MathJax_Preview">z_0,...,z_{N−1}</span><script type="math/tex">z_0,...,z_{N−1}</script></span>并控制 <span class="arithmatex"><span class="MathJax_Preview">u_0,...</span><script type="math/tex">u_0,...</script></span> ，对于控制轨迹，我们选择分段常数控制参数化。
+在每个时间间隔 <span class="arithmatex"><span class="MathJax_Preview">[t_k,t_{k+1})</span><script type="math/tex">[t_k,t_{k+1})</script></span>上，系统过程表示为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{equation}
+\begin{bmatrix}
+  x_{k+1}\\
+ z_k
+\end{bmatrix} = \phi(x_k,z_k), \ k = 0,...,N-1
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+\begin{bmatrix}
+  x_{k+1}\\
+ z_k
+\end{bmatrix} = \phi(x_k,z_k), \ k = 0,...,N-1
+\end{equation}</script>
+</div>
+<p>如 [1]_ 所示，与按正向顺序执行动态过程并进行优化的single shooting相比，multi-shooting方法通常可以带来更好的收敛行为。
+得到的非线性规划（NLP）公式如下所示：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{aligned}
+\underset{\substack{x_{0}, \ldots, x_{N}, \\ z_{0}, \ldots, z_{N-1}, \\ u_{0}, \ldots, u_{N-1}}}{\operatorname{minimize}} &amp; \sum_{k=0}^{N-1}\left(t_{k+1}-t_{k}\right) \cdot \ell\left(x_{k}, z_{k}, u_{k}\right)+M\left(x_{N}\right) \\
+\text { subject to } &amp; x_{0}=\bar{x}_{0}, \\
+{\left[\begin{array}{c}
+x_{k+1} \\
+z_{k}
+\end{array}\right] } &amp; =\phi_{k}\left(x_{k}, u_{k}\right), \quad k=0, \ldots, N-1, \\
+0 &amp; \geq g_{k}\left(x_{k}, z_{k}, u_{k}\right) \quad k=0, \ldots, N-1 .
+\end{aligned}</div>
+<script type="math/tex; mode=display">\begin{aligned}
+\underset{\substack{x_{0}, \ldots, x_{N}, \\ z_{0}, \ldots, z_{N-1}, \\ u_{0}, \ldots, u_{N-1}}}{\operatorname{minimize}} & \sum_{k=0}^{N-1}\left(t_{k+1}-t_{k}\right) \cdot \ell\left(x_{k}, z_{k}, u_{k}\right)+M\left(x_{N}\right) \\
+\text { subject to } & x_{0}=\bar{x}_{0}, \\
+{\left[\begin{array}{c}
+x_{k+1} \\
+z_{k}
+\end{array}\right] } & =\phi_{k}\left(x_{k}, u_{k}\right), \quad k=0, \ldots, N-1, \\
+0 & \geq g_{k}\left(x_{k}, z_{k}, u_{k}\right) \quad k=0, \ldots, N-1 .
+\end{aligned}</script>
+</div>
+<p>[1] Bock, H.: Randwertproblemmethoden zur Parameteridentifizierung in Systemen nichtlinearer Differentialgleichungen, Bonner Mathematische Schriften, vol. 183. Universität Bonn, Bonn (1987)</p>
+<ul>
+<li>
+<p>OPTIMake求解以下的优化问题：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{equation*}
+    \begin{split}
+       &amp;\quad \quad \quad \min_{v_1,\cdots,v_N} \sum_{i=1}^{N} l(v_i, p_i) \\
+        &amp;\begin{split}
+            \text{subject to}
+            &amp;\quad  v_1(\mathcal{S}) = v_{start},\\
+            &amp;\quad  f(v_{i}, v_{i+1}, p_i) = 0,\quad i=1,\cdots,N - 1,\\
+            &amp;\quad  v_N(\mathcal{E}) = v_{end},\\
+            &amp;\quad  g(v_i, p_i) \geq 0,\quad i=1,\cdots,N.
+        \end{split}
+    \end{split}
+\end{equation*}</div>
+<script type="math/tex; mode=display">\begin{equation*}
+    \begin{split}
+       &\quad \quad \quad \min_{v_1,\cdots,v_N} \sum_{i=1}^{N} l(v_i, p_i) \\
+        &\begin{split}
+            \text{subject to}
+            &\quad  v_1(\mathcal{S}) = v_{start},\\
+            &\quad  f(v_{i}, v_{i+1}, p_i) = 0,\quad i=1,\cdots,N - 1,\\
+            &\quad  v_N(\mathcal{E}) = v_{end},\\
+            &\quad  g(v_i, p_i) \geq 0,\quad i=1,\cdots,N.
+        \end{split}
+    \end{split}
+\end{equation*}</script>
+</div>
+</li>
+</ul>
+<p>该优化问题为一个具有 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 个stage的优化问题，取决于问题，该优化问题可能为一个非线性非凸的优化问题。
+其中，
+<span class="arithmatex"><span class="MathJax_Preview">v_1,\cdots,v_N \in \mathbb{R}^{n_{v}}</span><script type="math/tex">v_1,\cdots,v_N \in \mathbb{R}^{n_{v}}</script></span> 为优化变量；
+<span class="arithmatex"><span class="MathJax_Preview">p_1,\cdots,p_N\in \mathbb{R}^{n_{p}}</span><script type="math/tex">p_1,\cdots,p_N\in \mathbb{R}^{n_{p}}</script></span> 为参数；
+<span class="arithmatex"><span class="MathJax_Preview">l：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}</span><script type="math/tex">l：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}</script></span> 为stage cost；
+<span class="arithmatex"><span class="MathJax_Preview">f：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f}}</span><script type="math/tex">f：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f}}</script></span> 为等式约束；
+<span class="arithmatex"><span class="MathJax_Preview">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</span><script type="math/tex">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</script></span> 为不等式约束； 
+<span class="arithmatex"><span class="MathJax_Preview">v_{start}</span><script type="math/tex">v_{start}</script></span> 为初始的值（<span class="arithmatex"><span class="MathJax_Preview">\mathcal{S}</span><script type="math/tex">\mathcal{S}</script></span> 为被固定的初始变量的index）； 
+<span class="arithmatex"><span class="MathJax_Preview">v_{end}</span><script type="math/tex">v_{end}</script></span> 为终点的值（<span class="arithmatex"><span class="MathJax_Preview">\mathcal{E}</span><script type="math/tex">\mathcal{E}</script></span> 为被固定的终点变量的index）。</p>
+<h2 id="_2">问题定义</h2>
+<p>下面为定义问题的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="n">prob</span> <span class="o">=</span> <span class="n">multi_stage_problem</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vehicle&#39;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>其中，函数入参的定义如下：</p>
+<ul>
+<li>
+<p>name: str
+    问题的名称，该名称会用在生成代码的文件名，函数名等。</p>
+</li>
+<li>
+<p>N: int
+    问题的stage数目，必须大于等于1。</p>
+</li>
+</ul>
+<h3 id="parameter">parameter定义</h3>
+<p>parameter为在优化过程中不变的量，由用户在调用求解前给定，比如车身长度length，质量mass。</p>
+<p>OPTIMake支持两种类型的parameter：stage-independent parameter与stage-dependent parameter。
+stage-dependent parameter在不同stage可以有不同的值，
+而stage-independent parameter在所有stage的值都一致（可以节约存储与简化设置）。</p>
+<p>下面为定义优化变量的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="n">length</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
+<span class="n">xLowerBound</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="s1">&#39;xLowerBound&#39;</span><span class="p">,</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>其中，函数入参的定义如下：</p>
+<ul>
+<li>
+<p>name: str
+    parameter的名称。</p>
+</li>
+<li>
+<p>stage_dependent: bool, optional
+    parameter是否为stage-dependent。
+    默认值为True，表示parameter为stage-dependent。</p>
+</li>
+</ul>
+<p>亦或者通过list的方式定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">length</span><span class="p">,</span> <span class="n">mass</span><span class="p">,</span> <span class="n">xLowerBound</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">,</span> <span class="s1">&#39;xLowerBound&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_3">优化变量定义</h3>
+<p>优化变量为在优化过程中变化的量，比如车辆的转角控制量delta，位置状态x，y。
+在定义优化变量时，可以同时定义优化变量的硬边界、软边界以及违反软边界时的惩罚。</p>
+<p>下面为定义优化变量的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="n">delta</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="n">hard_lowerbound</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># xLowerBound与xUpperBound为已定义的parameter</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">hard_lowerbound</span><span class="o">=</span><span class="n">xLowerBound</span><span class="p">,</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="n">xUpperBound</span><span class="p">,</span> <span class="n">soft_lowerbound</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">soft_upperbound</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">weight_soft_lowerbound</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">weight_soft_upperbound</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">penalty_type_soft_lowerbound</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> <span class="n">penalty_type_soft_upperbound</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>亦或者通过list的方式定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">delta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variables</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> 
+              <span class="n">hard_lowerbound</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xLowerBound</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xUpperBound</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+              <span class="n">soft_lowerbound</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">soft_upperbound</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+              <span class="n">weight_soft_lowerbound</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">weight_soft_upperbound</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+              <span class="n">penalty_type_soft_lowerbound</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">],</span>
+              <span class="n">penalty_type_soft_upperbound</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> <span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>其中，函数入参的定义如下：</p>
+<ul>
+<li>
+<p>name: str
+    优化变量的名称。</p>
+</li>
+<li>
+<p>hard_lowerbound: float或参数, optional
+    硬下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。  </p>
+</li>
+<li>
+<p>hard_upperbound: float或参数, optional
+    硬上界，即优化变量的最大值。
+    默认值为inf，表示无上界。</p>
+</li>
+<li>
+<p>soft_lowerbound: float或参数, optional
+    软下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。</p>
+</li>
+<li>
+<p>soft_upperbound: float或参数, optional
+    软上界，即优化变量的最小值与最大值。
+    默认值为inf，表示无下界与上界。</p>
+</li>
+<li>
+<p>weight_soft_lowerbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。</p>
+</li>
+<li>
+<p>weight_soft_upperbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。</p>
+</li>
+<li>
+<p>penalty_type_soft_lowerbound: str, optional
+    软下界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。</p>
+</li>
+<li>
+<p>penalty_type_soft_upperbound: str, optional
+    软上界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。</p>
+</li>
+</ul>
+<h3 id="cost">cost定义</h3>
+<h3 id="_4">等式约束定义</h3>
+<h3 id="_5">不等式约束定义</h3>
+<h3 id="_6">起点约束定义</h3>
+<p>起点约束描述了第一个优化变量 :math:<code>v_1</code> 是否为固定值，比如在车辆轨迹规划问题中的车辆初始状态约束。</p>
+<p>下面为定义起点约束的例子：</p>
+<p>.. code-block:: python</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># x0, y0, phi0为已定义的parameter</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="k">var</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">x0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="w"> </span><span class="n">phi0</span><span class="p">)</span>
+</code></pre></div>
+
+<p>其中，函数入参的定义如下：</p>
+<ul>
+<li>
+<p>var: 优化变量
+    需要在起点固定的优化变量。</p>
+</li>
+<li>
+<p>value: float或参数
+    起点优化变量的值。</p>
+</li>
+</ul>
+<h3 id="_7">终点约束定义</h3>
+<p>终点约束描述了最后一个优化变量<span class="arithmatex"><span class="MathJax_Preview">v_N</span><script type="math/tex">v_N</script></span>是否为固定值，比如在火箭着陆轨迹规划问题中的末端零速度约束。</p>
+<p>下面为定义终点约束的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># x0, y0, phi0为已定义的parameter</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+<p>其中，函数入参的定义如下：</p>
+<ul>
+<li>
+<p>var: 优化变量
+    需要在终点固定的优化变量。</p>
+</li>
+<li>
+<p>value: float或参数
+    终点优化变量的值。</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

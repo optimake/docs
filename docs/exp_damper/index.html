@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Simulation: Semi-active Damper - OPTIMake</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simulation: Semi-active Damper";
+        var mkdocs_page_input_path = "exp_damper.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "UA-120133947-1", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> OPTIMake
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">安装方法</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../interfaces/">使用接口</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">模块列表</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../modules/project.md">项目管理</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../modules/interface.md">接口管理</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Simulation: Semi-active Damper</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem Description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ocp-in-parnmpc">OCP in ParNMPC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#closed-loop-simulation-using-parnmpc">Closed-loop Simulation using ParNMPC</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-nmpc-problem-formulation">Step 1. NMPC problem formulation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-code-generation-and-deployment-in-simulink">Step 2. Code generation and deployment in Simulink</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exp_double_pendulum/">Simulation: Double Inverted Pendulum on a Cart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exp_quadrotor/">Simulation: Quadrotor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exp_vehicle/">Simulation: Vehicle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exp_heli/">Experiment: Helicopter</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">OPTIMake</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Simulation: Semi-active Damper</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="semi-active-damper">Semi-active Damper</h1>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>SemiActiveDamper/</code></p>
+</div>
+<h2 id="problem-description">Problem Description</h2>
+<p>A vehicle contacts the wall through the spring and damper: </p>
+<p align="center">
+<img src="../damper.png" width="300px" height="150px" >
+</p>
+
+<ul>
+<li>
+<p>The state vector of the system is <span class="arithmatex"><span class="MathJax_Preview">x=[y,\dot{y}]^T</span><script type="math/tex">x=[y,\dot{y}]^T</script></span>, where <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> is the position of the vehicle. </p>
+</li>
+<li>
+<p>The input is the damping coefficient <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>, which is constrained with  <span class="arithmatex"><span class="MathJax_Preview">0\leq d \leq 1</span><script type="math/tex">0\leq d \leq 1</script></span>.</p>
+</li>
+<li>
+<p>The dynamic equation of this semi-active damper is <span class="arithmatex"><span class="MathJax_Preview">m\ddot{y} = -ky-d\dot{y}</span><script type="math/tex">m\ddot{y} = -ky-d\dot{y}</script></span>, where <span class="arithmatex"><span class="MathJax_Preview">k = 1</span><script type="math/tex">k = 1</script></span> and <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span>.</p>
+</li>
+</ul>
+<p>The task is to control the vehicle's position <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> to 0 from an initial position.</p>
+<h2 id="ocp-in-parnmpc">OCP in <strong><code>ParNMPC</code></strong></h2>
+<p>The inequality constraints are transfered into equality constraints by introducing an extra dummy input <span class="arithmatex"><span class="MathJax_Preview">d_s</span><script type="math/tex">d_s</script></span>. </p>
+<p>The underlying OCP defined in <strong><code>ParNMPC</code></strong> is formulated as:</p>
+<ul>
+<li>State: <span class="arithmatex"><span class="MathJax_Preview">x=[y,\dot{y}]^T</span><script type="math/tex">x=[y,\dot{y}]^T</script></span>.</li>
+<li>Input: <span class="arithmatex"><span class="MathJax_Preview">u=[d,d_s]</span><script type="math/tex">u=[d,d_s]</script></span>.</li>
+<li>Parameter: <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> is empty.</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">L(u,x,p) = \frac{1}{2}\|x-x_{ref}\|_{Q}^2+\frac{1}{2}\|u-u_{ref}\|_{R}^2 - rd_s</span><script type="math/tex">L(u,x,p) = \frac{1}{2}\|x-x_{ref}\|_{Q}^2+\frac{1}{2}\|u-u_{ref}\|_{R}^2 - rd_s</script></span>.</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">C(u,x,p) = (d-\frac{1}{2})^2 + d_s^2-\frac{1}{4}</span><script type="math/tex">C(u,x,p) = (d-\frac{1}{2})^2 + d_s^2-\frac{1}{4}</script></span>.</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f(u,x,p) = [\dot{y},-y-d\dot{y}]^T</span><script type="math/tex">f(u,x,p) = [\dot{y},-y-d\dot{y}]^T</script></span>.</li>
+<li>Prediction horizon <span class="arithmatex"><span class="MathJax_Preview">T=5</span><script type="math/tex">T=5</script></span>.</li>
+<li>Number of the discritization grids <span class="arithmatex"><span class="MathJax_Preview">N=48</span><script type="math/tex">N=48</script></span>.</li>
+<li>Discretization method: Euler.</li>
+</ul>
+<h2 id="closed-loop-simulation-using-parnmpc">Closed-loop Simulation using <strong><code>ParNMPC</code></strong></h2>
+<h3 id="step-1-nmpc-problem-formulation">Step 1. NMPC problem formulation</h3>
+<p>See <a href="../workflow/#nmpc_formulation">Workflow of ParNMPC &gt; NMPC Problem Formulation</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>SemiActiveDamper/NMPC_Problem_Formulation.m</code></p>
+</div>
+<h3 id="step-2-code-generation-and-deployment-in-simulink">Step 2. Code generation and deployment in Simulink</h3>
+<p>See <a href="../workflow/#workflow_deploy_simulink">Workflow of ParNMPC &gt; Code Generation and Deployment &gt; Simulink</a>.</p>
+<ol>
+<li>
+<p>Code generation</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>SemiActiveDamper/Simu_Simulink_Setup.m</code></p>
+</div>
+</li>
+<li>
+<p>Deployment</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>SemiActiveDamper/Simu_Simulink.slx</code></p>
+</div>
+</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../interfaces/" class="btn btn-neutral float-left" title="使用接口"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exp_double_pendulum/" class="btn btn-neutral float-right" title="Simulation: Double Inverted Pendulum on a Cart">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../interfaces/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../exp_double_pendulum/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,6 +1,22 @@
 site_name: OPTIMake
 site_description: Build Your Ultrafast Solver
 
+nav:
+  - 首页: index.md
+  - 安装方法: installation.md
+  - 使用接口: interfaces.md
+  - 代码部署: deploy.md
+  - Examples:
+      - Semi-active Damper: examples/exp_damper.md
+      - Double Inverted Pendulum on a Cart: examples/exp_double_pendulum.md
+      - Quadrotor: examples/exp_quadrotor.md
+      - Vehicle: examples/exp_vehicle.md
+      - Helicopter: examples/exp_heli.md
+  - Tips: tips.md
+  - About: about.md
+  - FAQ: faq.md
+
+
 
 markdown_extensions:
   - pymdownx.arithmatex
@@ -27,7 +43,7 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 theme:
-  name: 'readthedocs'
+  name: 'material'
   palette:
     primary: 'indigo'
     accent: 'indigo'
