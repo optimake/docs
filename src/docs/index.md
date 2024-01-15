@@ -1,4 +1,4 @@
-# Welcome to OPTIMake
+# Welcome to OPTIMake!
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
