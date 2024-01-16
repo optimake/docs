@@ -204,12 +204,12 @@ delta, x, y = prob.variables(name=['delta', 'x', 'y'],
 
 下面为定义起点约束的例子：
 
-.. code-block:: python
-
+``` python
     # x0, y0, phi0为已定义的parameter
     prob.fixed_start_variable(var=x, value=x0)
     prob.fixed_start_variable(y, y0)
     prob.fixed_start_variable(phi, phi0)
+```
 
 其中，函数入参的定义如下：
 

@@ -1,19 +1,93 @@
 site_name: OPTIMake
 site_description: Build Your Ultrafast Solver
 
+# Configuration
+theme:
+  name: 'material'
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  # favicon: assets/favicon.png
+  # icon:
+  #   logo: logo
+
+
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/optimake
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/optimake
+  #   - icon: fontawesome/brands/docker
+  #     link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+  #   - icon: fontawesome/brands/python
+  #     link: https://pypi.org/project/mkdocs-material/
+  #   - icon: fontawesome/brands/mastodon
+  #     link: https://fosstodon.org/@optimake
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/optimake
+
+    
+
+# Plugins
+plugins:
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
 nav:
   - 首页: index.md
   - 安装方法: installation.md
   - 使用接口: interfaces.md
   - 代码部署: deploy.md
-  - Examples:
+  - 应用案例:
       - Semi-active Damper: examples/exp_damper.md
       - Double Inverted Pendulum on a Cart: examples/exp_double_pendulum.md
       - Quadrotor: examples/exp_quadrotor.md
       - Vehicle: examples/exp_vehicle.md
       - Helicopter: examples/exp_heli.md
-  - Tips: tips.md
   - About: about.md
+  - Tips: tips.md
   - FAQ: faq.md
 
 
@@ -42,11 +116,3 @@ google_analytics:
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
-theme:
-  name: 'material'
-  palette:
-    primary: 'indigo'
-    accent: 'indigo'
-  font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
