@@ -8,7 +8,7 @@ repo_name: OPTIMake/client
 repo_url: https://github.com/optimake/client
 
 # Copyright
-copyright: Copyright &copy; 2016 - 2024 OPTIMake 
+copyright: Copyright &copy; 2023 - 2024 OPTIMake 
 
 # Configuration
 theme:
@@ -50,10 +50,10 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  # favicon: assets/favicon.png
   icon:
     repo: fontawesome/brands/github
-  #   logo: logo
+  logo: assets/logo.png
+  favicon: assets/favicon.png
 
 
 extra:

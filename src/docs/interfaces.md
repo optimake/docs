@@ -1,4 +1,4 @@
-# Interfaces
+# 使用接口
 
 该章节介绍OPTIMake支持的问题类型，以及如何通过OPTIMake提供的建模接口定义问题。
 ## 问题支持
