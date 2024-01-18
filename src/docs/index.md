@@ -12,8 +12,8 @@ OPTIMake是一套专注于开发机器人飞行器以及无人驾驶等领域中
 
 ![Image title](https://www.odys.it/wp-content/uploads/2014/09/car.jpg){ align=left width=300 }
 <br />
-<br />
 OPTIMake可以帮助汽车工程师开发基于嵌入式MPC和机器学习的先进控制系统。我们在ADAS、自动驾驶、运动控制、动力总成控制、车辆动力学、代客泊车、等方面拥有丰富的经验。
+<br />
 <br />
 <br />
 
