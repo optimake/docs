@@ -1,7 +1,7 @@
 # 使用接口
 
 该章节介绍OPTIMake支持的问题类型，以及如何通过OPTIMake提供的建模接口定义问题。
-## 问题支持
+## 问题形式
 
 我们首先考虑形式为的连续时间非线性最优控制问题:
 
@@ -36,7 +36,7 @@
 \end{equation}
 
 
-如 [1]_ 所示，与按正向顺序执行动态过程并进行优化的single shooting相比，multi-shooting方法通常可以带来更好的收敛行为。
+如 [1] 所示，与按正向顺序执行动态过程并进行优化的single shooting相比，multi-shooting方法通常可以带来更好的收敛行为。
 得到的非线性规划（NLP）公式如下所示：
 
 \begin{aligned}

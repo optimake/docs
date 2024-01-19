@@ -101,7 +101,8 @@ plugins:
       type: date
 
 nav:
-  - 首页: index.md
+  - 技术概览: index.md
+  - 算法特性: features.md
   - 安装方法: installation.md
   - 使用接口: interfaces.md
   - 代码部署: deploy.md
@@ -111,7 +112,8 @@ nav:
       - Quadrotor: examples/exp_quadrotor.md
       - Vehicle: examples/exp_vehicle.md
       - Helicopter: examples/exp_heli.md
-  - About: about.md
+  - 技术支持: support.md
+  - 关于我们: about.md
   - Tips: tips.md
   - FAQ: faq.md
 
