@@ -104,7 +104,7 @@ nav:
   - 技术概览: index.md
   - 算法特性: features.md
   - 安装方法: installation.md
-  - 使用接口: interfaces.md
+  - 建模接口: interfaces.md
   - 代码部署: deploy.md
   - 应用案例:
       - Semi-active Damper: examples/exp_damper.md
@@ -132,6 +132,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tilde
   - admonition
   - footnotes

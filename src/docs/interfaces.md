@@ -1,8 +1,9 @@
-# 使用接口
+# **建模接口**
 
 该章节介绍OPTIMake支持的问题类型，以及如何通过OPTIMake提供的建模接口定义问题。
-## 问题形式
+## **问题形式**
 
+<!-- 
 我们首先考虑形式为的连续时间非线性最优控制问题:
 
 \begin{array}{cll}
@@ -51,6 +52,8 @@ z_{k}
 
 [1] Bock, H.: Randwertproblemmethoden zur Parameteridentifizierung in Systemen nichtlinearer Differentialgleichungen, Bonner Mathematische Schriften, vol. 183. Universität Bonn, Bonn (1987)
 
+-->
+
 - OPTIMake求解以下的优化问题：
 
     \begin{equation*}
@@ -77,13 +80,14 @@ $v_{start}$ 为初始的值（$\mathcal{S}$ 为被固定的初始变量的index�
 $v_{end}$ 为终点的值（$\mathcal{E}$ 为被固定的终点变量的index）。
 
 
-## 问题定义
+## **问题定义**
 
-下面为定义问题的例子：
+下面为定义问题的例子，该例子指定了问题的名称为vehicle且具有10个stage：
 
-``` python
-prob = multi_stage_problem(name='vehicle', N=10)
-```
+=== "Python"
+    ``` python
+    prob = multi_stage_problem(name='vehicle', N=10)
+    ```
 
 其中，函数入参的定义如下：
 
@@ -93,8 +97,14 @@ prob = multi_stage_problem(name='vehicle', N=10)
 - N: int
     问题的stage数目，必须大于等于1。
 
+在完成问题名称和stage数的定义后，下面说明如何定义优化问题中的参数，优化变量及约束。
 
-### parameter定义
+!!! tip
+
+    因为上述的优化问题为一个多stage的优化问题，等式约束与不等式约束的表达式在所有stage上都一致，所以不需要在每个stage上都单独定义，只需要定义一次该表达式即可（参数与优化变量同理）。
+
+
+### **parameter定义**
 
 parameter为在优化过程中不变的量，由用户在调用求解前给定，比如车身长度length，质量mass。
 
@@ -104,11 +114,12 @@ stage-dependent parameter在不同stage可以有不同的值，
 
 下面为定义优化变量的例子：
 
-``` python
-length = prob.parameter(name='length', stage_dependent=False)
-mass = prob.parameter('mass')
-xLowerBound = prob.parameter('xLowerBound', stage_dependent=True)
-```
+=== "Python"
+    ``` python
+    length = prob.parameter(name='length', stage_dependent=False)
+    mass = prob.parameter('mass')
+    xLowerBound = prob.parameter('xLowerBound', stage_dependent=True)
+    ```
 
 其中，函数入参的定义如下：
 
@@ -123,36 +134,44 @@ xLowerBound = prob.parameter('xLowerBound', stage_dependent=True)
 
 亦或者通过list的方式定义：
 
-``` python
-length, mass, xLowerBound = prob.parameters(['length', 'mass', 'xLowerBound'], stage_dependent=False)
-```
+=== "Python"
+    ``` python
+    length, mass, xLowerBound = prob.parameters(['length', 'mass', 'xLowerBound'], stage_dependent=False)
+    ```
 
 
-### 优化变量定义
+### **优化变量定义**
 
 优化变量为在优化过程中变化的量，比如车辆的转角控制量delta，位置状态x，y。
 在定义优化变量时，可以同时定义优化变量的硬边界、软边界以及违反软边界时的惩罚。
 
 下面为定义优化变量的例子：
 
-``` python
-delta = prob.variable(name='delta', hard_lowerbound=-0.5, hard_upperbound=0.5)
+=== "Python"
+    ``` python
+    delta = prob.variable(name='delta', hard_lowerbound=-0.5, hard_upperbound=0.5)
 
-# xLowerBound与xUpperBound为已定义的parameter
-x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound, soft_lowerbound=-0.2, soft_upperbound=0.2, weight_soft_lowerbound=100.0, weight_soft_upperbound=100.0, penalty_type_soft_lowerbound='quadratic', penalty_type_soft_upperbound='l1')
-y = prob.variable('y')
-```
-
+    # xLowerBound与xUpperBound为已定义的parameter
+    x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound, \
+                           soft_lowerbound=-0.2, soft_upperbound=0.2, \
+                           weight_soft_lowerbound=100.0, weight_soft_upperbound=100.0, \
+                           penalty_type_soft_lowerbound='quadratic', penalty_type_soft_upperbound='l1')
+    y = prob.variable('y')
+    theta = prob.variable('theta')
+    ```
+<!-- 
 亦或者通过list的方式定义：
 
-``` python
-delta, x, y = prob.variables(name=['delta', 'x', 'y'], 
-              hard_lowerbound=[-0.5, xLowerBound, None], hard_upperbound=[0.5, xUpperBound, None],
-              soft_lowerbound=[None, -0.2, None], soft_upperbound=[None, 0.2, None],
-              weight_soft_lowerbound=[None, 100.0, None], weight_soft_upperbound=[None, 100.0, None],
-              penalty_type_soft_lowerbound=['quadratic', 'quadratic', 'quadratic'],
-              penalty_type_soft_upperbound=['quadratic', 'l1', 'quadratic'])
-```
+=== "Python"
+    ``` python
+    delta, x, y = prob.variables(name=['delta', 'x', 'y'], 
+                hard_lowerbound=[-0.5, xLowerBound, None], hard_upperbound=[0.5, xUpperBound, None],
+                soft_lowerbound=[None, -0.2, None], soft_upperbound=[None, 0.2, None],
+                weight_soft_lowerbound=[None, 100.0, None], weight_soft_upperbound=[None, 100.0, None],
+                penalty_type_soft_lowerbound=['quadratic', 'quadratic', 'quadratic'],
+                penalty_type_soft_upperbound=['quadratic', 'l1', 'quadratic'])
+    ```
+-->
 
 其中，函数入参的定义如下：
 
@@ -192,24 +211,79 @@ delta, x, y = prob.variables(name=['delta', 'x', 'y'],
     默认值为'quadratic'。
 
 
-### cost定义
+### **cost定义**
 
-### 等式约束定义
+### **等式约束定义**
 
-### 不等式约束定义
+### **不等式约束定义**
 
-### 起点约束定义
+在定义不等式约束时，可以同时定义不等式约束的硬边界、软边界以及违反软边界时的惩罚。
+
+下面为定义不等式约束的例子：
+
+=== "Python"
+    ``` python
+
+    # x + sin(theta) * y >= 1.0
+    prob.inequality(x + sin(theta) * y, hard_lowerbound=1.0)
+
+    # x + sin(theta) * y的硬边界为[-1.0, 1.0]，软边界为[-0.5, 0.5]
+    prob.inequality(x + y, hard_lowerbound=-1.0, hard_upperbound=1.0, \
+                    soft_lowerbound=-0.5, soft_upperbound=0.5, \
+                    weight_soft_lowerbound=1e2, weight_soft_upperbound=1e2, \
+                    penalty_type_soft_lowerbound='l1', penalty_type_soft_upperbound='l1')
+    ```
+
+其中，函数入参的定义如下：
+
+- ineq: expression
+    不等式约束的表达式。
+
+- hard_lowerbound: float或参数, optional
+    硬下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。  
+
+- hard_upperbound: float或参数, optional
+    硬上界，即优化变量的最大值。
+    默认值为inf，表示无上界。
+
+- soft_lowerbound: float或参数, optional
+    软下界，即优化变量的最小值。
+    默认值为-inf，表示无下界。
+
+- soft_upperbound: float或参数, optional
+    软上界，即优化变量的最小值与最大值。
+    默认值为inf，表示无下界与上界。
+
+- weight_soft_lowerbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。
+
+- weight_soft_upperbound: float或参数, optional
+    软下界的惩罚权重，必须为非负。
+    默认值为0.0，表示无惩罚。
+
+- penalty_type_soft_lowerbound: str, optional
+    软下界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。
+
+- penalty_type_soft_upperbound: str, optional
+    软上界的惩罚类型，可选值为'quadratic'或'l1'。
+    默认值为'quadratic'。
+
+### **起点约束定义**
 
 起点约束描述了第一个优化变量 :math:`v_1` 是否为固定值，比如在车辆轨迹规划问题中的车辆初始状态约束。
 
 下面为定义起点约束的例子：
 
-``` python
-    # x0, y0, phi0为已定义的parameter
-    prob.fixed_start_variable(var=x, value=x0)
-    prob.fixed_start_variable(y, y0)
-    prob.fixed_start_variable(phi, phi0)
-```
+=== "Python"
+    ``` python
+        # x0, y0, phi0为已定义的parameter
+        prob.fixed_start_variable(var=x, value=x0)
+        prob.fixed_start_variable(y, y0)
+        prob.fixed_start_variable(phi, phi0)
+    ```
 
 其中，函数入参的定义如下：
 
@@ -219,17 +293,18 @@ delta, x, y = prob.variables(name=['delta', 'x', 'y'],
 - value: float或参数
     起点优化变量的值。
 
-### 终点约束定义
+### **终点约束定义**
 
 终点约束描述了最后一个优化变量$v_N$是否为固定值，比如在火箭着陆轨迹规划问题中的末端零速度约束。
 
 下面为定义终点约束的例子：
 
-``` python
-# x0, y0, phi0为已定义的parameter
-prob.fixed_start_variable(var=v, value=0.0)
-prob.fixed_start_variable(phi, 0.0)
-```
+=== "Python"
+    ``` python
+    # x0, y0, phi0为已定义的parameter
+    prob.fixed_start_variable(var=v, value=0.0)
+    prob.fixed_start_variable(phi, 0.0)
+    ```
 
 其中，函数入参的定义如下：
 
