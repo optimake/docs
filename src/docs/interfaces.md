@@ -139,7 +139,9 @@ length, mass, xLowerBound = prob.parameters(['length', 'mass', 'xLowerBound'], s
 delta = prob.variable(name='delta', hard_lowerbound=-0.5, hard_upperbound=0.5)
 
 # xLowerBound与xUpperBound为已定义的parameter
-x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound, soft_lowerbound=-0.2, soft_upperbound=0.2, weight_soft_lowerbound=100.0, weight_soft_upperbound=100.0, penalty_type_soft_lowerbound='quadratic', penalty_type_soft_upperbound='l1')
+x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound, 
+    soft_lowerbound=-0.2, soft_upperbound=0.2, weight_soft_lowerbound=100.0, weight_soft_upperbound=100.0,
+    penalty_type_soft_lowerbound='quadratic', penalty_type_soft_upperbound='l1')
 y = prob.variable('y')
 ```
 
@@ -200,7 +202,7 @@ delta, x, y = prob.variables(name=['delta', 'x', 'y'],
 
 ### 起点约束定义
 
-起点约束描述了第一个优化变量 :math:`v_1` 是否为固定值，比如在车辆轨迹规划问题中的车辆初始状态约束。
+起点约束描述了第一个优化变量 $v_1$ 是否为固定值，比如在车辆轨迹规划问题中的车辆初始状态约束。
 
 下面为定义起点约束的例子：
 

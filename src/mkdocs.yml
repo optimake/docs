@@ -4,8 +4,8 @@ site_author: Orbit
 site_description: Build Your Ultrafast Solver
 
 # Repository
-repo_name: OPTIMake/client
-repo_url: https://github.com/optimake/client
+repo_name: OPTIMake/examples
+repo_url: https://github.com/optimake/examples
 
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 OPTIMake 
