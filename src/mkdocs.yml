@@ -112,6 +112,8 @@ nav:
       - Quadrotor: examples/exp_quadrotor.md
       - Vehicle: examples/exp_vehicle.md
       - Helicopter: examples/exp_heli.md
+      - Flight: examples/flight.md
+      - Missile Guidance: examples/missile_guidance.md
   - 技术支持: support.md
   - 关于我们: about.md
   - Tips: tips.md
