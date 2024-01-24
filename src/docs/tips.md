@@ -1,4 +1,4 @@
-# Tips
+# **Tips**
 
 ## Solving the Very First OCP
 In most of the cases, the very first OCP can be solved offline so that warm-start can be used.

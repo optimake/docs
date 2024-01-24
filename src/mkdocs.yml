@@ -4,8 +4,8 @@ site_author: Orbit
 site_description: Build Your Ultrafast Solver
 
 # Repository
-repo_name: OPTIMake/client
-repo_url: https://github.com/optimake/client
+# repo_name: OPTIMake/client
+# repo_url: https://github.com/optimake/client
 
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 OPTIMake 
@@ -35,7 +35,7 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
+      primary: custom
       accent: indigo
       toggle:
         icon: material/toggle-switch
@@ -101,10 +101,11 @@ plugins:
       type: date
 
 nav:
-  - 技术概览: index.md
-  - 算法特性: features.md
+  - 介绍: index.md
+  # - 算法特性: features.md
   - 安装方法: installation.md
   - 建模接口: interfaces.md
+  - 代码生成: codegen.md
   - 代码部署: deploy.md
   - 应用案例:
       - Semi-active Damper: examples/exp_damper.md
@@ -112,9 +113,9 @@ nav:
       - Quadrotor: examples/exp_quadrotor.md
       - Vehicle: examples/exp_vehicle.md
       - Helicopter: examples/exp_heli.md
-  - 技术支持: support.md
-  - 关于我们: about.md
-  - Tips: tips.md
+  # - 技术支持: support.md
+  # - 关于我们: about.md
+  # - Tips: tips.md
   - FAQ: faq.md
 
 
@@ -148,3 +149,5 @@ google_analytics:
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
+extra_css:
+  - stylesheets/extra.css

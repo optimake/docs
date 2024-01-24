@@ -1,4 +1,4 @@
-# OPTIMake: Build Your Ultrafast Solver
+# **OPTIMake: Build Your Ultrafast Solver**
 
 
 众所周知，基于实时在线优化的控制与决策，已经成为智能机器实现复杂动态行为的基本计算途径。
@@ -25,3 +25,25 @@ OPTIMake可以帮助汽车工程师开发基于嵌入式MPC和机器学习的先
 <br />
 
 For full documentation visit [optimake.net](https://www.optimake.net). 
+
+## **License**
+
+## **Release Notes**
+
+## **技术支持**
+
+E-mail支持
+
+如果出现技术问题，请联系OPTIMake支持：optimake@outlook.com。为了加快这一过程，我们建议您提供以下信息：
+
++ 您使用的正是OPTIMake版本。
+
++ 您正在使用的平台（Linux、Windows、MacOS、32位或64位）。
+
++ 您正在使用的API（C、MATLAB、Python、R）。
+
++ 日志信息和错误消息。
+
++ 再现问题所需的数据，例如任务文件或代码示例（如果相关）。
+
++ 有关常见问题、安装问题和转储任务文件的说明，请参阅我们的常见问题解答。
