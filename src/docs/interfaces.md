@@ -150,7 +150,7 @@ stage-dependent parameter在不同stage可以有不同的值，
 === "Python"
     ``` python
     delta = prob.variable(name='delta', hard_lowerbound=-0.5, hard_upperbound=0.5)
-
+    
     # xLowerBound与xUpperBound为已定义的parameter
     x = prob.variable('x', hard_lowerbound=xLowerBound, hard_upperbound=xUpperBound, \
                            soft_lowerbound=-0.2, soft_upperbound=0.2, \

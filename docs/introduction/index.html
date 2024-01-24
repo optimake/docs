@@ -12,11 +12,11 @@
         <meta name="author" content="Orbit">
       
       
-        <link rel="canonical" href="https://docs.optimake.net/faq/">
+        <link rel="canonical" href="https://docs.optimake.net/introduction/">
       
       
-        <link rel="prev" href="../examples/missile_guidance/">
       
+        <link rel="next" href="../installation/">
       
       
       <link rel="icon" href="../assets/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>FAQ - OPTIMake</title>
+        <title>介绍 - OPTIMake</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#faq" class="md-skip">
+        <a href="#optimake-build-your-ultrafast-solver" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ
+              介绍
             
           </span>
         </div>
@@ -255,10 +255,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    介绍
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -267,6 +287,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      技术支持
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -447,30 +514,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    FAQ
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,35 +526,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      软约束 
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -539,9 +557,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      软约束 
+      技术支持
     </span>
   </a>
   
@@ -562,10 +598,49 @@
                   
 
 
-<h1 id="faq"><strong>FAQ</strong></h1>
-<p>如有任何疑问，请联系<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a></p>
-<h2 id="_1">软约束 <div id="soft_constraint"></div></h2>
-<p>在定义优化变量，等式约束与不等式约束时，都能指定是否软化。OPTIMake中支持两种软化类型：l1与quadratic。</p>
+<h1 id="optimake-build-your-ultrafast-solver"><strong>OPTIMake: Build Your Ultrafast Solver</strong></h1>
+<p>众所周知，基于实时在线优化的控制与决策，已经成为智能机器实现复杂动态行为的基本计算途径。
+尤其以用于非线性最优控制的实时嵌入式求解器技术显示出根本的重要性。</p>
+<p>OPTIMake是一套专注于开发机器人飞行器以及无人驾驶等领域中的下一代模型预测控制(MPC)系统基础性工具。
+我们的专业知识涵盖先进的多变量控制设计、最先进的优化算法以及高效稳健的软件实现。</p>
+<p><img align="left" alt="Image title" src="https://www.odys.it/wp-content/uploads/2014/09/car.jpg" width="300" />
+<br />
+OPTIMake可以帮助汽车工程师开发基于嵌入式MPC和机器学习的先进控制系统。我们在ADAS、自动驾驶、运动控制、动力总成控制、车辆动力学、代客泊车、等方面拥有丰富的经验。
+<br />
+<br />
+<br /></p>
+<p><img align="right" alt="Image title" src="https://www.odys.it/wp-content/uploads/2014/09/satellite.jpg" width="300" />
+<br />
+<br />
+我们致力于为航天工业的制导、导航和控制设计先进的实时计算提供算法和软件支持。应用包括卫星姿态控制、空间交会和无人机自主导航。
+<br />
+<br /></p>
+<p>For full documentation visit <a href="https://www.optimake.net">optimake.net</a>. </p>
+<h2 id="license"><strong>License</strong></h2>
+<h2 id="release-notes"><strong>Release Notes</strong></h2>
+<h2 id="_1"><strong>技术支持</strong></h2>
+<p>E-mail支持</p>
+<p>如果出现技术问题，请联系OPTIMake支持：<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a>。为了加快这一过程，我们建议您提供以下信息：</p>
+<ul>
+<li>
+<p>您使用的正是OPTIMake版本。</p>
+</li>
+<li>
+<p>您正在使用的平台（Linux、Windows、MacOS、32位或64位）。</p>
+</li>
+<li>
+<p>您正在使用的API（C、MATLAB、Python、R）。</p>
+</li>
+<li>
+<p>日志信息和错误消息。</p>
+</li>
+<li>
+<p>再现问题所需的数据，例如任务文件或代码示例（如果相关）。</p>
+</li>
+<li>
+<p>有关常见问题、安装问题和转储任务文件的说明，请参阅我们的常见问题解答。</p>
+</li>
+</ul>
 
 
 
@@ -598,7 +673,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 15, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 24, 2024</span>
   </span>
 
     
@@ -634,22 +709,22 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+        
           
-          <a href="../examples/missile_guidance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Missile Guidance">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
+          <a href="../installation/" class="md-footer__link md-footer__link--next" aria-label="Next: 安装方法">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Previous
+                Next
               </span>
               <div class="md-ellipsis">
-                Missile Guidance
+                安装方法
               </div>
             </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
           </a>
-        
         
       </nav>
     
