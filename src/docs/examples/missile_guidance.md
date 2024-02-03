@@ -37,3 +37,62 @@ r a_{min} \leq - N V^2 \sin \varphi \leq r a_{max}  \label{3} \tag{3}
 \end{align}
 
 ## 导弹制导优化问题描述
+
+\begin{array}{cll}
+\underset{r(\cdot), q(\cdot), \varphi(\cdot)}{\operatorname{minimize}} & \int_{0}^{T} \ell(a(t)) \mathrm{d} t \\
+\text { subject to } & r(0)=\bar{r}_{0}, q(0)=\bar{q}_{0}, \varphi(0)=\bar{\varphi}_{0} & \\
+& (1),(3),(4).
+\end{array}
+
+优化目标为过载（最小二乘）积分, 模型定义为：
+
+=== "Python"
+    ``` python
+	prob = multi_stage_problem('missile', N=11)
+
+	r0, q0, phi0 = prob.parameters(['r0', 'q0', 'phi0'])
+	length       = prob.parameter('length')
+	V            = prob.parameters(['V'], stage_dependent=True)
+	aLB, aUB     = prob.parameters(['aLB', 'aUB'], stage_dependent=True)
+	phiLB, phiUB = prob.parameters(['phiLB', 'phiUB'], stage_dependent=True)
+	rf           = prob.parameters(['rf'], stage_dependent=False)
+	thetaf       = prob.parameters(['thetaf'], stage_dependent=False)
+
+	r, q, phi    = prob.variables(['x', 'q', 'phi'])
+	uN           = prob.variable('uN', hard_lowerbound=-10.0, hard_upperbound=10.0, \
+    							 soft_lowerbound=-5.0, soft_upperbound=5.0, \
+                       			 weight_soft_lowerbound=1e1, \
+								 weight_soft_upperbound=1e1, \
+                     			 penalty_type_soft_lowerbound='quadratic', \
+								 penalty_type_soft_upperbound='quadratic')
+
+	accl = [-uN * V**2 * sin(phi) / r]
+	objLS = least_square_objective(accl)
+	prob.objective(objLS)
+
+	prob.inequality(phi, hard_lowerbound=phiLB, hard_upperbound=phiUB)
+	prob.inequality(uN * V**2 * sin(phi) / r, hard_lowerbound=aLB, hard_upperbound=aUB)
+
+	""" ode """
+	ode = differential_equation(
+    	input=[uN],
+		state=[r, q, phi],
+		state_dot=[-V * cos(phi), -V * sin(phi) / r, (1 - uN) * V * sin(phi) / r],
+		stepsize=0.1,
+		discretization_method='forward_euler')
+	prob.equality(ode)
+	
+	prob.fixed_start_variable(r, r0)
+	prob.fixed_start_variable(q, q0)
+	prob.fixed_start_variable(phi, phi0)
+	prob.fixed_end_variable(r, rf)
+	prob.fixed_end_variable(q + phi, thetaf)
+
+	option = codegen_option()
+	option.platform = 'windows-x86_64-mingw'  # ['windows-x86_64-mingw', 'linux-x86_64-gcc', 'linux-arm64-gcc', 'linux-armv7-gcc']
+	option.server = 'http://127.0.0.1'
+	option.license_uuid = 'xxxx-xxxx-xxxx-xxxx'
+	codegen = pdipm_generator()
+	codegen.codegen(prob, option)
+    ```
+以上。

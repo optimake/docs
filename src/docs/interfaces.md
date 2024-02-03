@@ -407,8 +407,8 @@ discrete equation为 $h_{next}(v_{i+1}, p_{i+1}) = h_{this}(v_i, p_i)$，下面�
 === "Python"
     ``` python
     # x0, y0, phi0为已定义的parameter
-    prob.fixed_start_variable(var=v, value=0.0)
-    prob.fixed_start_variable(phi, 0.0)
+    prob.fixed_end_variable(var=v, value=0.0)
+    prob.fixed_end_variable(phi, 0.0)
     ```
 
 其中，函数入参的定义如下：
