@@ -727,6 +727,73 @@ r a_{min} \leq - N V^2 \sin \varphi \leq r a_{max}  \label{3} \tag{3}
 \end{align}</script>
 </div>
 <h2 id="_3">导弹制导优化问题描述</h2>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{array}{cll}
+\underset{r(\cdot), q(\cdot), \varphi(\cdot)}{\operatorname{minimize}} &amp; \int_{0}^{T} \ell(a(t)) \mathrm{d} t \\
+\text { subject to } &amp; r(0)=\bar{r}_{0}, q(0)=\bar{q}_{0}, \varphi(0)=\bar{\varphi}_{0} &amp; \\
+&amp; (1),(3),(4).
+\end{array}</div>
+<script type="math/tex; mode=display">\begin{array}{cll}
+\underset{r(\cdot), q(\cdot), \varphi(\cdot)}{\operatorname{minimize}} & \int_{0}^{T} \ell(a(t)) \mathrm{d} t \\
+\text { subject to } & r(0)=\bar{r}_{0}, q(0)=\bar{q}_{0}, \varphi(0)=\bar{\varphi}_{0} & \\
+& (1),(3),(4).
+\end{array}</script>
+</div>
+<p>优化目标为过载（最小二乘）积分, 模型定义为：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">prob</span> <span class="o">=</span> <span class="n">multi_stage_problem</span><span class="p">(</span><span class="s1">&#39;missile&#39;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">r0</span><span class="p">,</span> <span class="n">q0</span><span class="p">,</span> <span class="n">phi0</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;q0&#39;</span><span class="p">,</span> <span class="s1">&#39;phi0&#39;</span><span class="p">])</span>
+<span class="n">length</span>       <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="s1">&#39;length&#39;</span><span class="p">)</span>
+<span class="n">V</span>            <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;V&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aLB</span><span class="p">,</span> <span class="n">aUB</span>     <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;aLB&#39;</span><span class="p">,</span> <span class="s1">&#39;aUB&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">phiLB</span><span class="p">,</span> <span class="n">phiUB</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;phiLB&#39;</span><span class="p">,</span> <span class="s1">&#39;phiUB&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rf</span>           <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;rf&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">thetaf</span>       <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">parameters</span><span class="p">([</span><span class="s1">&#39;thetaf&#39;</span><span class="p">],</span> <span class="n">stage_dependent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">phi</span>    <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variables</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;phi&#39;</span><span class="p">])</span>
+<span class="n">uN</span>           <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="s1">&#39;uN&#39;</span><span class="p">,</span> <span class="n">hard_lowerbound</span><span class="o">=-</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> \
+                             <span class="n">soft_lowerbound</span><span class="o">=-</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">soft_upperbound</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> \
+                             <span class="n">weight_soft_lowerbound</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> \
+                             <span class="n">weight_soft_upperbound</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> \
+                             <span class="n">penalty_type_soft_lowerbound</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> \
+                             <span class="n">penalty_type_soft_upperbound</span><span class="o">=</span><span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>
+
+<span class="n">accl</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">uN</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="p">]</span>
+<span class="n">objLS</span> <span class="o">=</span> <span class="n">least_square_objective</span><span class="p">(</span><span class="n">accl</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">objLS</span><span class="p">)</span>
+
+<span class="n">prob</span><span class="o">.</span><span class="n">inequality</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">hard_lowerbound</span><span class="o">=</span><span class="n">phiLB</span><span class="p">,</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="n">phiUB</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">inequality</span><span class="p">(</span><span class="n">uN</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="p">,</span> <span class="n">hard_lowerbound</span><span class="o">=</span><span class="n">aLB</span><span class="p">,</span> <span class="n">hard_upperbound</span><span class="o">=</span><span class="n">aUB</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot; ode &quot;&quot;&quot;</span>
+<span class="n">ode</span> <span class="o">=</span> <span class="n">differential_equation</span><span class="p">(</span>
+    <span class="nb">input</span><span class="o">=</span><span class="p">[</span><span class="n">uN</span><span class="p">],</span>
+    <span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">phi</span><span class="p">],</span>
+    <span class="n">state_dot</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="n">V</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="o">-</span><span class="n">V</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">uN</span><span class="p">)</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="p">],</span>
+    <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">discretization_method</span><span class="o">=</span><span class="s1">&#39;forward_euler&#39;</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">equality</span><span class="p">(</span><span class="n">ode</span><span class="p">)</span>
+
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">r0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_start_variable</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">phi0</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_end_variable</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">rf</span><span class="p">)</span>
+<span class="n">prob</span><span class="o">.</span><span class="n">fixed_end_variable</span><span class="p">(</span><span class="n">q</span> <span class="o">+</span> <span class="n">phi</span><span class="p">,</span> <span class="n">thetaf</span><span class="p">)</span>
+
+<span class="n">option</span> <span class="o">=</span> <span class="n">codegen_option</span><span class="p">()</span>
+<span class="n">option</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;windows-x86_64-mingw&#39;</span>  <span class="c1"># [&#39;windows-x86_64-mingw&#39;, &#39;linux-x86_64-gcc&#39;, &#39;linux-arm64-gcc&#39;, &#39;linux-armv7-gcc&#39;]</span>
+<span class="n">option</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1&#39;</span>
+<span class="n">option</span><span class="o">.</span><span class="n">license_uuid</span> <span class="o">=</span> <span class="s1">&#39;xxxx-xxxx-xxxx-xxxx&#39;</span>
+<span class="n">codegen</span> <span class="o">=</span> <span class="n">pdipm_generator</span><span class="p">()</span>
+<span class="n">codegen</span><span class="o">.</span><span class="n">codegen</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>以上。</p>
 
 
 
@@ -749,7 +816,7 @@ r a_{min} \leq - N V^2 \sin \varphi \leq r a_{max}  \label{3} \tag{3}
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2024</span>
   </span>
 
     
