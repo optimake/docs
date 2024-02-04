@@ -6,22 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.optimake.net/about/</loc>
-         <lastmod>2024-02-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.optimake.net/codegen_deploy/</loc>
          <lastmod>2024-02-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/faq/</loc>
-         <lastmod>2024-02-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.optimake.net/features/</loc>
          <lastmod>2024-02-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -37,16 +27,6 @@
     </url>
     <url>
          <loc>https://docs.optimake.net/solve_interfaces/</loc>
-         <lastmod>2024-02-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.optimake.net/support/</loc>
-         <lastmod>2024-02-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.optimake.net/tips/</loc>
          <lastmod>2024-02-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
