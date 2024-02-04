@@ -1,6 +1,6 @@
 # OPTIMake: Build Your Ultrafast Solver
 
-
+## 简介
 众所周知，基于实时在线优化的控制与决策，已经成为智能机器实现复杂动态行为的基本计算途径。
 尤其以用于非线性最优控制的实时嵌入式求解器技术显示出根本的重要性。
 
@@ -25,3 +25,10 @@ OPTIMake可以帮助汽车工程师开发基于嵌入式MPC和机器学习的先
 <br />
 
 For full documentation visit [optimake.net](https://www.optimake.net). 
+
+## Licensing
+
+## Release Notes
+
+
+## 关于我们

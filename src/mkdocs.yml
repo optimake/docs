@@ -35,14 +35,14 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
+      primary: custom
       accent: indigo
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
+      primary: custom
       accent: indigo
       toggle:
         icon: material/toggle-switch-off
@@ -101,11 +101,13 @@ plugins:
       type: date
 
 nav:
-  - 技术概览: index.md
-  - 算法特性: features.md
+  - 介绍: index.md
+  # - 算法特性: features.md
   - 安装方法: installation.md
-  - 使用接口: interfaces.md
-  - 代码部署: deploy.md
+  - 接口说明:
+    - 建模接口: modeling_interfaces.md
+    - 代码生成及部署: codegen_deploy.md
+    - 求解接口: solve_interfaces.md
   - 应用案例:
     #  - Semi-active Damper: examples/exp_damper.md
     #  - Double Inverted Pendulum on a Cart: examples/exp_double_pendulum.md
@@ -114,9 +116,9 @@ nav:
     #  - Helicopter: examples/exp_heli.md
       - Flight: examples/flight.md
       - Missile Guidance: examples/missile_guidance.md
-  - 技术支持: support.md
-  - 关于我们: about.md
-  - Tips: tips.md
+  # - 技术支持: support.md
+  # - 关于我们: about.md
+  # - Tips: tips.md
   - FAQ: faq.md
 
 
@@ -150,3 +152,5 @@ google_analytics:
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
+extra_css:
+  - stylesheets/extra.css

@@ -12,28 +12,28 @@
         <meta name="author" content="Orbit">
       
       
-        <link rel="canonical" href="https://docs.optimake.net/examples/flight/">
+        <link rel="canonical" href="https://docs.optimake.net/codegen_deploy/">
       
       
-        <link rel="prev" href="../../solve_interfaces/">
+        <link rel="prev" href="../modeling_interfaces/">
       
       
-        <link rel="next" href="../missile_guidance/">
+        <link rel="next" href="../solve_interfaces/">
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.7">
     
     
       
-        <title>Flight - OPTIMake</title>
+        <title>代码生成及部署 - OPTIMake</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flight" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,9 +106,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OPTIMake" class="md-header__button md-logo" aria-label="OPTIMake" data-md-component="logo">
+    <a href=".." title="OPTIMake" class="md-header__button md-logo" aria-label="OPTIMake" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flight
+              代码生成及部署
             
           </span>
         </div>
@@ -255,9 +255,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OPTIMake" class="md-nav__button md-logo" aria-label="OPTIMake" data-md-component="logo">
+    <a href=".." title="OPTIMake" class="md-nav__button md-logo" aria-label="OPTIMake" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     OPTIMake
@@ -284,7 +284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -304,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -321,8 +321,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -336,12 +338,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -355,7 +357,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             接口说明
@@ -369,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modeling_interfaces/" class="md-nav__link">
+      <a href="../modeling_interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -387,10 +389,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../codegen_deploy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -399,6 +410,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -411,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../solve_interfaces/" class="md-nav__link">
+      <a href="../solve_interfaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -436,10 +448,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -451,12 +461,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -470,7 +480,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             应用案例
@@ -481,30 +491,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Flight
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../examples/flight/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -513,44 +503,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      飞行器动力学模型
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      在线轨迹规划问题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -563,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../missile_guidance/" class="md-nav__link">
+      <a href="../examples/missile_guidance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -624,32 +576,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      飞行器动力学模型
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      在线轨迹规划问题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -663,7 +589,7 @@
                   
 
   
-    <a href="https://github.com/optimake/examples/edit/master/docs/examples/flight.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/optimake/examples/edit/master/docs/codegen_deploy.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -672,114 +598,15 @@
     
       
     
-    <a href="https://github.com/optimake/examples/raw/master/docs/examples/flight.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/optimake/examples/raw/master/docs/codegen_deploy.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="flight">Flight</h1>
-<h2 id="_1">飞行器动力学模型</h2>
-<p>考虑一个飞行器三维动力学模型：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">\begin{align}
-    \dot{x}&amp;=V \cos \gamma \cos \psi \label{1.1} \tag{1.1} \\
-    \dot{y}&amp;=V \sin \gamma \label{1.2} \tag{1.2} \\
-    \dot{z}&amp;=-V \cos \gamma \sin \psi \label{1.3} \tag{1.3} \\
-    \dot{V}&amp;=-D-\sin \gamma / r^{2}  \label{1.4} \tag{1.4} \\ 
-    \dot{\gamma}&amp;=-L \cos \sigma / V-\cos \gamma / V r^{2} \label{1.5} \tag{1.5} \\
-    \dot{\psi}&amp;=-L \sin \sigma / V \cos \gamma \label{1.6} \tag{1.6}
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-    \dot{x}&=V \cos \gamma \cos \psi \label{1.1} \tag{1.1} \\
-    \dot{y}&=V \sin \gamma \label{1.2} \tag{1.2} \\
-    \dot{z}&=-V \cos \gamma \sin \psi \label{1.3} \tag{1.3} \\
-    \dot{V}&=-D-\sin \gamma / r^{2}  \label{1.4} \tag{1.4} \\ 
-    \dot{\gamma}&=-L \cos \sigma / V-\cos \gamma / V r^{2} \label{1.5} \tag{1.5} \\
-    \dot{\psi}&=-L \sin \sigma / V \cos \gamma \label{1.6} \tag{1.6}
-\end{align}</script>
-</div>
-<p>式(1) 中， <span class="arithmatex"><span class="MathJax_Preview">(x, y, z)</span><script type="math/tex">(x, y, z)</script></span> 为飞行器的三维位置， <span class="arithmatex"><span class="MathJax_Preview">r = 1 + y</span><script type="math/tex">r = 1 + y</script></span> 为质心到地心距离，
-<span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span> 为速度， <span class="arithmatex"><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> 为航迹倾角， <span class="arithmatex"><span class="MathJax_Preview">\psi</span><script type="math/tex">\psi</script></span> 为航迹偏角；
-航程 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 、高度 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 以及侧向位置 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 通过地球半径 <span class="arithmatex"><span class="MathJax_Preview">R_0</span><script type="math/tex">R_0</script></span> 进行无量纲化，
-速度 <span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span> 通过 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{g_0 R_0}</span><script type="math/tex">\sqrt{g_0 R_0}</script></span> 进行无量纲化，其中，<span class="arithmatex"><span class="MathJax_Preview">g_0</span><script type="math/tex">g_0</script></span> 为地球表面的重力加速度。</p>
-<p>上述方程对无量纲时间 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 求导，时间 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 通过 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{g_0/R_0}</span><script type="math/tex">\sqrt{g_0/R_0}</script></span> 进行无量纲化。 <span class="arithmatex"><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> 为滚转角；
-<span class="arithmatex"><span class="MathJax_Preview">L =  \tfrac{1}{2} R_0 \rho V^2 C_L/m</span><script type="math/tex">L =  \tfrac{1}{2} R_0 \rho V^2 C_L/m</script></span> 为无量纲升力， <span class="arithmatex"><span class="MathJax_Preview">D = \tfrac{1}{2} R_0 \rho V^2 C_D/m</span><script type="math/tex">D = \tfrac{1}{2} R_0 \rho V^2 C_D/m</script></span> 为无量纲阻力，其中 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 为飞行器的参考面积， m 为质量， <span class="arithmatex"><span class="MathJax_Preview">q = \tfrac{1}{2} \rho V^2</span><script type="math/tex">q = \tfrac{1}{2} \rho V^2</script></span> 为动压。 
-<span class="arithmatex"><span class="MathJax_Preview">\rho=\rho_{0} e^{-k_{\rho} h}</span><script type="math/tex">\rho=\rho_{0} e^{-k_{\rho} h}</script></span> 为大气密度，其中 <span class="arithmatex"><span class="MathJax_Preview">\rho_0</span><script type="math/tex">\rho_0</script></span> 为海平面处的大气密度， <span class="arithmatex"><span class="MathJax_Preview">k_\rho</span><script type="math/tex">k_\rho</script></span> 为常值系数。</p>
-<p>对于面对称飞行器而言，升力系数和阻力系数作为攻角和马赫数的函数具有一定的关联性，一般用极曲线描述，简化地，可以
-用二次函数表示这种关联，即： </p>
-<div class="arithmatex">
-<div class="MathJax_Preview">\begin{equation}
-   C_{D}(\alpha, M)=K(M) C_{L}^{2}(\alpha, M)+C_{D 0}(M) \label{2} \tag{2}
-\end{equation}</div>
-<script type="math/tex; mode=display">\begin{equation}
-   C_{D}(\alpha, M)=K(M) C_{L}^{2}(\alpha, M)+C_{D 0}(M) \label{2} \tag{2}
-\end{equation}</script>
-</div>
-<p>其中， <span class="arithmatex"><span class="MathJax_Preview">C_{D_0}(M)</span><script type="math/tex">C_{D_0}(M)</script></span> 为零攻角阻力系数，<span class="arithmatex"><span class="MathJax_Preview">K(M)</span><script type="math/tex">K(M)</script></span> 为诱导阻力系数，它们仅为马赫数的函数。
-依据以上，阻力和升力有如下关系：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">\begin{equation}
-   D = D_K L^2 + D_0 \label{3} \tag{3}
-\end{equation}</div>
-<script type="math/tex; mode=display">\begin{equation}
-   D = D_K L^2 + D_0 \label{3} \tag{3}
-\end{equation}</script>
-</div>
-<p>其中， <span class="arithmatex"><span class="MathJax_Preview">D_K=\frac{2K_m}{\rho V^2 S R_0}</span><script type="math/tex">D_K=\frac{2K_m}{\rho V^2 S R_0}</script></span> , <span class="arithmatex"><span class="MathJax_Preview">D0 = \tfrac{1}{2} \rho V^2 S C_{D_0} R_0/m</span><script type="math/tex">D0 = \tfrac{1}{2} \rho V^2 S C_{D_0} R_0/m</script></span> 为零升阻力，它们均是高度和马赫数的函数。定义如下新控制变量：</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">\begin{equation}
-   u_1 = L \cos \sigma,  u_2 = L \sin \sigma  \label{4} \tag{4}
-\end{equation}</div>
-<script type="math/tex; mode=display">\begin{equation}
-   u_1 = L \cos \sigma,  u_2 = L \sin \sigma  \label{4} \tag{4}
-\end{equation}</script>
-</div>
-<p><em>气动参数</em> </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">参数</th>
-<th style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></th>
-<th style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">S_{ref}</span><script type="math/tex">S_{ref}</script></span></th>
-<th style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">g_0</span><script type="math/tex">g_0</script></span></th>
-<th style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">C_{D_0}</span><script type="math/tex">C_{D_0}</script></span></th>
-<th style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">K_{m}</span><script type="math/tex">K_{m}</script></span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>值</strong></td>
-<td style="text-align: left;">200 (kg)</td>
-<td style="text-align: left;">0.292 <span class="arithmatex"><span class="MathJax_Preview">(m^2)</span><script type="math/tex">(m^2)</script></span></td>
-<td style="text-align: left;">9.82</td>
-<td style="text-align: left;">0.08</td>
-<td style="text-align: left;">0.15</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>参数</strong></td>
-<td style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">\alpha_{max}</span><script type="math/tex">\alpha_{max}</script></span></td>
-<td style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">\sigma_{max}</span><script type="math/tex">\sigma_{max}</script></span></td>
-<td style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">n_{max}</span><script type="math/tex">n_{max}</script></span></td>
-<td style="text-align: left;"><span class="arithmatex"><span class="MathJax_Preview">q_{max}</span><script type="math/tex">q_{max}</script></span></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>值</strong></td>
-<td style="text-align: left;">20 (deg)</td>
-<td style="text-align: left;">90 (deg)</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">120(kN/<span class="arithmatex"><span class="MathJax_Preview">m^2</span><script type="math/tex">m^2</script></span> )</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>对于飞行器而言，气动系数一般是随着速度、高度等环境因素变化的，OPTIMake将有专门处理 LookupTable函数支持这类输入，并实现与求解器的高效集成。</p>
-</div>
-<h2 id="_2">在线轨迹规划问题</h2>
+<h1 id="_1">代码生成及部署</h1>
+<p>该章节介绍代码生成的接口以及如何在不同平台部署OPTIMake的生成代码。</p>
 
 
 
@@ -802,7 +629,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 4, 2024</span>
   </span>
 
     
@@ -812,7 +639,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 4, 2024</span>
   </span>
 
     
@@ -849,7 +676,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../solve_interfaces/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 求解接口">
+          <a href="../modeling_interfaces/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 建模接口">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -859,20 +686,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                求解接口
+                建模接口
               </div>
             </div>
           </a>
         
         
           
-          <a href="../missile_guidance/" class="md-footer__link md-footer__link--next" aria-label="Next: Missile Guidance">
+          <a href="../solve_interfaces/" class="md-footer__link md-footer__link--next" aria-label="Next: 求解接口">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Missile Guidance
+                求解接口
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -964,10 +791,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.caa56a14.min.js"></script>
+      <script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
