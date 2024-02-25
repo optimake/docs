@@ -2,52 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.optimake.net/codegen/</loc>
-         <lastmod>2024-01-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.optimake.net/deploy/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/faq/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/features/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/installation/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/interfaces/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/introduction/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/blog/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/examples/flight/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/examples/missile_guidance/</loc>
-         <lastmod>2024-01-24</lastmod>
+         <lastmod>2024-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
