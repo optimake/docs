@@ -127,27 +127,27 @@ stage-dependent parameter在不同stage可以有不同的值，
 - name: str
     优化变量的名称。
 
-- hard_lowerbound: float或参数, optional
+- hard_lowerbound: 关于参数的表达式, optional
     硬下界，即优化变量的最小值。
     默认值为-inf，表示无下界。  
 
-- hard_upperbound: float或参数, optional
+- hard_upperbound: 关于参数的表达式, optional
     硬上界，即优化变量的最大值。
     默认值为inf，表示无上界。
 
-- soft_lowerbound: float或参数, optional
+- soft_lowerbound: 关于参数的表达式, optional
     软下界，即优化变量的最小值。
     默认值为-inf，表示无下界。
 
-- soft_upperbound: float或参数, optional
+- soft_upperbound: 关于参数的表达式, optional
     软上界，即优化变量的最小值与最大值。
     默认值为inf，表示无下界与上界。
 
-- weight_soft_lowerbound: float或参数, optional
+- weight_soft_lowerbound: 关于参数的表达式, optional
     软下界的惩罚权重，必须为非负。
     默认值为0.0，表示无惩罚。
 
-- weight_soft_upperbound: float或参数, optional
+- weight_soft_upperbound: 关于参数的表达式, optional
     软下界的惩罚权重，必须为非负。
     默认值为0.0，表示无惩罚。
 
@@ -195,9 +195,9 @@ objective为需要最小化的目标函数。OPTIMake支持以下类型的object
 - residuals: 表达式的list
     对应$r(v, p)$
 
-- weights: float或参数的list, optional
-    对应$w(p)$。
-    默认值为全为1的list。
+- weight: 关于参数的表达式的list, optional
+    对应$w(p)$
+    默认值为全为1.0的list
 
 !!! Note
 
@@ -230,7 +230,7 @@ differential equation为 $\dot x = h(u, x)$，在定义differential equation时�
 - state_dot: 表达式的list
     该等式约束的状态微分量，即 $h(u, x)$。
 
-- stepsize: float或参数
+- stepsize: 关于参数的表达式
     离散步长。
 
 - discretization_method: str
@@ -266,7 +266,7 @@ discrete equation为 $h_{next}(v_{i+1}, p_{i+1}) = h_{this}(v_i, p_i)$，下面�
 
 其中，函数入参的定义如下：
 
-- weight_soft: float或参数的list
+- weight_soft: 关于参数的表达式的list
     等式约束的软化权重，必须为非负。
     默认值为inf，表示无软化。
 
@@ -295,27 +295,27 @@ discrete equation为 $h_{next}(v_{i+1}, p_{i+1}) = h_{this}(v_i, p_i)$，下面�
 - ineq: 表达式
     不等式约束的表达式。
 
-- hard_lowerbound: float或参数, optional
+- hard_lowerbound: 关于参数的表达式, optional
     硬下界，即优化变量的最小值。
     默认值为-inf，表示无下界。  
 
-- hard_upperbound: float或参数, optional
+- hard_upperbound: 关于参数的表达式, optional
     硬上界，即优化变量的最大值。
     默认值为inf，表示无上界。
 
-- soft_lowerbound: float或参数, optional
+- soft_lowerbound: 关于参数的表达式, optional
     软下界，即优化变量的最小值。
     默认值为-inf，表示无下界。
 
-- soft_upperbound: float或参数, optional
+- soft_upperbound: 关于参数的表达式, optional
     软上界，即优化变量的最小值与最大值。
     默认值为inf，表示无下界与上界。
 
-- weight_soft_lowerbound: float或参数, optional
+- weight_soft_lowerbound: 关于参数的表达式, optional
     软下界的惩罚权重，必须为非负。
     默认值为0.0，表示无惩罚。
 
-- weight_soft_upperbound: float或参数, optional
+- weight_soft_upperbound: 关于参数的表达式, optional
     软下界的惩罚权重，必须为非负。
     默认值为0.0，表示无惩罚。
 
@@ -336,18 +336,15 @@ discrete equation为 $h_{next}(v_{i+1}, p_{i+1}) = h_{this}(v_i, p_i)$，下面�
 === "Python"
     ``` python
     # x0, y0, phi0为已定义的parameter
-    prob.fixed_start_variable(var=x, value=x0)
-    prob.fixed_start_variable(y, y0)
-    prob.fixed_start_variable(phi, phi0)
+    prob.start_equation(x - x0)
+    prob.start_equation(y - y0)
+    prob.start_equation(phi - phi0)
     ```
 
 其中，函数入参的定义如下：
 
-- var: 优化变量
-    需要在起点固定的优化变量。
+- expr: 起点约束的表达式
 
-- value: float或参数
-    起点优化变量的值。
 
 ### **终点约束定义**
 
@@ -357,15 +354,16 @@ discrete equation为 $h_{next}(v_{i+1}, p_{i+1}) = h_{this}(v_i, p_i)$，下面�
 
 === "Python"
     ``` python
-    # x0, y0, phi0为已定义的parameter
-    prob.fixed_end_variable(var=v, value=0.0)
-    prob.fixed_end_variable(phi, 0.0)
+    prob.end_equality(v)
+    prob.end_equality(phi)
     ```
 
 其中，函数入参的定义如下：
 
-- var: 优化变量
-    需要在终点固定的优化变量。
+- expr: 终点约束的表达式
 
-- value: float或参数
-    终点优化变量的值。
+!!! Note
+
+    起点与终点约束不支持软化。
+
+

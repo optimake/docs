@@ -1,11 +1,11 @@
-site_name: OPTIMake
+site_name: OPTIMake User Manual
 site_url: https://docs.optimake.net
 site_author: Orbit
 site_description: Build Your Ultrafast Solver
 
 # Repository
-repo_name: OPTIMake/examples
-repo_url: https://github.com/optimake/examples
+# repo_name: OPTIMake/examples
+# repo_url: https://github.com/optimake/examples
 
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 OPTIMake 
@@ -28,25 +28,25 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-  palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/link
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
+  # palette:
+  #   - media: "(prefers-color-scheme)"
+  #     toggle:
+  #       icon: material/link
+  #       name: Switch to light mode
+  #   - media: "(prefers-color-scheme: light)"
+  #     scheme: default
+  #     primary: custom
+  #     accent: indigo
+  #     toggle:
+  #       icon: material/toggle-switch
+  #       name: Switch to dark mode
+  #   - media: "(prefers-color-scheme: dark)"
+  #     scheme: slate
+  #     primary: black
+  #     accent: indigo
+  #     toggle:
+  #       icon: material/toggle-switch-off
+  #       name: Switch to system preference
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -61,10 +61,10 @@ extra:
   status:
     new: Recently added
     deprecated: Deprecated
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
-  social:
+  # analytics:
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+  # social:
   #   - icon: fontawesome/brands/docker
   #     link: https://hub.docker.com/r/squidfunk/mkdocs-material/
   #   - icon: fontawesome/brands/python
@@ -75,16 +75,16 @@ extra:
   #    link: https://github.com/optimake
   #  - icon: fontawesome/brands/gitlab
   #    link: https://gitlab.com/optimake
-    - icon: fontawesome/brands/zhihu
-      link: https://zhihu.com/optimake
-    - icon: fontawesome/brands/weibo
-      link: https://weibo.com/optimake
-    - icon: fontawesome/brands/bilibili
-      link: https://bilibili.com/optimake
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/optimake
-    - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/optimake
+    # - icon: fontawesome/brands/zhihu
+    #   link: https://zhihu.com/optimake
+    # - icon: fontawesome/brands/weibo
+    #   link: https://weibo.com/optimake
+    # - icon: fontawesome/brands/bilibili
+    #   link: https://bilibili.com/optimake
+    # - icon: fontawesome/brands/linkedin
+    #   link: https://linkedin.com/optimake
+    # - icon: fontawesome/brands/x-twitter
+    #   link: https://twitter.com/optimake
       
 
     
@@ -92,13 +92,13 @@ extra:
 # Plugins
 plugins:
   # - glightbox
-  - blog
+  # - blog
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - git-revision-date-localized:
-      #  enabled: !ENV [CI, false]
-      enable_creation_date: true
-      type: date
+  # - git-revision-date-localized:
+  #     #  enabled: !ENV [CI, false]
+  #     enable_creation_date: true
+  #     type: date
 
 nav:
   - 介绍: index.md
@@ -145,9 +145,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
-google_analytics:
-  - 'UA-120133947-1'
-  - 'auto'
+# google_analytics:
+#   - 'UA-120133947-1'
+#   - 'auto'
   
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
