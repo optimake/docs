@@ -845,9 +845,9 @@
         &amp;\quad \quad \quad \min_{v_1,\cdots,v_N} \sum_{i=1}^{N} l(v_i, p_i) \\
         &amp;\begin{split}
             \text{subject to}
-            &amp;\quad  v_1(\mathcal{S}) = v_{start},\\
+            &amp;\quad  f_1(v_1, p_1) = 0,\\
             &amp;\quad  f(v_{i}, v_{i+1}, p_i) = 0,\quad i=1,\cdots,N - 1,\\
-            &amp;\quad  v_N(\mathcal{E}) = v_{end},\\
+            &amp;\quad  f_N(v_N, p_N) = 0,\\
             &amp;\quad  g(v_i, p_i) \geq 0,\quad i=1,\cdots,N.
         \end{split}
     \end{split}
@@ -857,9 +857,9 @@
         &\quad \quad \quad \min_{v_1,\cdots,v_N} \sum_{i=1}^{N} l(v_i, p_i) \\
         &\begin{split}
             \text{subject to}
-            &\quad  v_1(\mathcal{S}) = v_{start},\\
+            &\quad  f_1(v_1, p_1) = 0,\\
             &\quad  f(v_{i}, v_{i+1}, p_i) = 0,\quad i=1,\cdots,N - 1,\\
-            &\quad  v_N(\mathcal{E}) = v_{end},\\
+            &\quad  f_N(v_N, p_N) = 0,\\
             &\quad  g(v_i, p_i) \geq 0,\quad i=1,\cdots,N.
         \end{split}
     \end{split}
@@ -870,10 +870,10 @@
 <span class="arithmatex"><span class="MathJax_Preview">v_1,\cdots,v_N \in \mathbb{R}^{n_{v}}</span><script type="math/tex">v_1,\cdots,v_N \in \mathbb{R}^{n_{v}}</script></span> 为优化变量；
 <span class="arithmatex"><span class="MathJax_Preview">p_1,\cdots,p_N\in \mathbb{R}^{n_{p}}</span><script type="math/tex">p_1,\cdots,p_N\in \mathbb{R}^{n_{p}}</script></span> 为参数；
 <span class="arithmatex"><span class="MathJax_Preview">l：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}</span><script type="math/tex">l：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}</script></span> 为stage objective；
+<span class="arithmatex"><span class="MathJax_Preview">f_1：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_1}}</span><script type="math/tex">f_1：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_1}}</script></span> 为起点等式约束；
 <span class="arithmatex"><span class="MathJax_Preview">f：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f}}</span><script type="math/tex">f：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f}}</script></span> 为等式约束；
-<span class="arithmatex"><span class="MathJax_Preview">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</span><script type="math/tex">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</script></span> 为不等式约束； 
-<span class="arithmatex"><span class="MathJax_Preview">v_{start}</span><script type="math/tex">v_{start}</script></span> 为初始的值（<span class="arithmatex"><span class="MathJax_Preview">\mathcal{S}</span><script type="math/tex">\mathcal{S}</script></span> 为被固定的初始变量的index）； 
-<span class="arithmatex"><span class="MathJax_Preview">v_{end}</span><script type="math/tex">v_{end}</script></span> 为终点的值（<span class="arithmatex"><span class="MathJax_Preview">\mathcal{E}</span><script type="math/tex">\mathcal{E}</script></span> 为被固定的终点变量的index）。</p>
+<span class="arithmatex"><span class="MathJax_Preview">f_N：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_N}}</span><script type="math/tex">f_N：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_N}}</script></span> 为终点等式约束；
+<span class="arithmatex"><span class="MathJax_Preview">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</span><script type="math/tex">g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}</script></span> 为不等式约束。</p>
 <h2 id="_3"><strong>问题定义</strong></h2>
 <p>下面为定义问题的例子，该例子指定了问题的名称为vehicle且具有10个stage：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
