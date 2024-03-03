@@ -10,9 +10,9 @@ OPTIMake求解以下的优化问题：
         &\quad \quad \quad \min_{v_1,\cdots,v_N} \sum_{i=1}^{N} l(v_i, p_i) \\
         &\begin{split}
             \text{subject to}
-            &\quad  v_1(\mathcal{S}) = v_{start},\\
+            &\quad  f_1(v_1, p_1) = 0,\\
             &\quad  f(v_{i}, v_{i+1}, p_i) = 0,\quad i=1,\cdots,N - 1,\\
-            &\quad  v_N(\mathcal{E}) = v_{end},\\
+            &\quad  f_N(v_N, p_N) = 0,\\
             &\quad  g(v_i, p_i) \geq 0,\quad i=1,\cdots,N.
         \end{split}
     \end{split}
@@ -23,10 +23,10 @@ OPTIMake求解以下的优化问题：
 $v_1,\cdots,v_N \in \mathbb{R}^{n_{v}}$ 为优化变量；
 $p_1,\cdots,p_N\in \mathbb{R}^{n_{p}}$ 为参数；
 $l：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}$ 为stage objective；
+$f_1：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_1}}$ 为起点等式约束；
 $f：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f}}$ 为等式约束；
-$g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}$ 为不等式约束； 
-$v_{start}$ 为初始的值（$\mathcal{S}$ 为被固定的初始变量的index）； 
-$v_{end}$ 为终点的值（$\mathcal{E}$ 为被固定的终点变量的index）。
+$f_N：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{f_N}}$ 为终点等式约束；
+$g：\mathbb{R}^{n_{v}} \times \mathbb{R}^{n_{p}} \rightarrow \mathbb{R}^{n_{g}}$ 为不等式约束。
 
 
 ## **问题定义**
