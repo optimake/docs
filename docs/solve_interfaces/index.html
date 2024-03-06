@@ -342,6 +342,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    求解接口
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -351,6 +362,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      problem设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option" class="md-nav__link">
+    <span class="md-ellipsis">
+      option设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      workspace设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exitflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      exitflag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -496,6 +571,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      problem设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option" class="md-nav__link">
+    <span class="md-ellipsis">
+      option设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      workspace设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exitflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      exitflag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -510,7 +638,71 @@
 
 
 <h1 id="_1">求解接口</h1>
-<p>该章节介绍OPTIMake的求解器接口。</p>
+<p>该章节介绍OPTIMake的求解接口。
+求解接口接收problem，option，workspace作为输入，返回exitflag与output。下面为求解接口solve的伪代码：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Pseudocode</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">exitflag</span><span class="p">,</span> <span class="n">output</span><span class="p">]</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="problem"><strong>problem设置</strong></h2>
+<p>优化问题的参数与外部自定义函数通过problem进行设置。</p>
+<h2 id="option"><strong>option设置</strong></h2>
+<p>求解参数通过option设置。</p>
+<p>通用option：</p>
+<ul>
+<li>print_level：打印信息的等级，int类型<ul>
+<li>0：不打印</li>
+<li>1：打印错误信息与最终求解状态</li>
+<li>2：在1的基础上，打印迭代过程</li>
+<li>3：在2的基础上，打印更多求解信息</li>
+</ul>
+</li>
+<li>obj_scaling_method：objective的scaling方法，int类型<ul>
+<li>0：无scaling</li>
+<li>1：用户指定scaling factor，其值通过option中的obj_scaling_factor（double类型，正数）输入</li>
+<li>2：自动根据Hessian值进行scaling</li>
+</ul>
+</li>
+<li>max_num_iter：最大迭代次数，int类型，非负</li>
+<li>tol_eq：等式约束的tolerance，double类型，非负</li>
+<li>tol_ineq：不等式约束的tolerance，double类型，非负</li>
+<li>tol_stat：stationarity condition的tolerance，double类型，非负</li>
+<li>tol_comp：complementarity condition的tolerance，double类型，非负</li>
+<li>tol_step：迭代步长的tolerance，double类型，非负</li>
+</ul>
+<p>Interior-point method专有option：</p>
+<ul>
+<li>mu_start：barrier parameter的初始值，double类型，非负</li>
+<li>mu_end：barrier parameter的最终值，double类型，非负且不大于mu_start</li>
+<li>try_warm_start_mu：该参数只对需连续求解的问题（如高频控制问题）有效。barrier parameter是否尝试从mu_end开始warm start，如果尝试失败，barrier parameter会被设置为mu_start开始迭代，如果warm start成功，将有效降低迭代次数。<ul>
+<li>0：否</li>
+<li>1：是</li>
+</ul>
+</li>
+</ul>
+<h2 id="workspace"><strong>workspace设置</strong></h2>
+<p>优化问题的初始解通过workspace设定。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OPTIMake中primal变量的初始解均由workspace提供。若用户未设置，将默认使用上一次workspace中的值（上一次solve产生的值）作为初始值。</p>
+</div>
+<h2 id="exitflag"><strong>exitflag</strong></h2>
+<p>exitflag为求解状态。</p>
+<ul>
+<li>1：求解成功</li>
+<li>2：达到最大迭代次数</li>
+<li>3：迭代步长小于设定的tolerance（tol_step）</li>
+<li>4：迭代过程中产生inf/nan非法值</li>
+<li>100：license检查失败</li>
+<li>101：初始解检查失败（包含inf/nan非法值）</li>
+<li>102：参数检查失败（包含inf/nan非法值）</li>
+</ul>
+<h2 id="output"><strong>output</strong></h2>
+<p>output中包含了求解状态，耗时，优化变量，迭代次数，objective，residual信息。</p>
 
 
 
