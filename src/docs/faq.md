@@ -1,5 +1,6 @@
 ## 技术支持
 
+OPTIMake团队成员来自于ETHZ，EPFL，香港科技大学等国内外知名高校，拥有多年求解器研发，应用与业界落地经验。
 请联系OPTIMake获取技术支持：optimake@outlook.com。
 <!-- E-mail支持
 
