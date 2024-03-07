@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.optimake.net/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/codegen_deploy/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/faq/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/installation/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/modeling_interfaces/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/solve_interfaces/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/blog/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/examples/flight/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.optimake.net/examples/missile_guidance/</loc>
-         <lastmod>2024-03-06</lastmod>
+         <lastmod>2024-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

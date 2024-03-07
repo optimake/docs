@@ -30,7 +30,7 @@
 - tol_ineq：不等式约束的tolerance，double类型，非负
 - tol_stat：stationarity condition的tolerance，double类型，非负
 - tol_comp：complementarity condition的tolerance，double类型，非负
-- tol_step：迭代步长的tolerance，double类型，非负
+- tol_step：优化变量的变化的tolerance，double类型，非负
 
 Interior-point method专有option：
 
@@ -51,10 +51,11 @@ Interior-point method专有option：
 ## **exitflag**
 exitflag为求解状态。
 
-- 1：求解成功
-- 2：达到最大迭代次数
-- 3：迭代步长小于设定的tolerance（tol_step）
-- 4：迭代过程中产生inf/nan非法值
+- 1：求解成功：找到tol_eq、tol_ineq、tol_stat、tol_comp均满足的解
+- 2：找到可行解：找到满足tol_eq与tol_ineq，但tol_stat或tol_comp不满足的解
+- 3：达到最大迭代次数，未找到可行解
+- 4：优化变量的变化小于设定的tolerance（tol_step），未找到可行解
+- 5：迭代过程中产生inf/nan非法值，未找到可行解
 - 100：license检查失败
 - 101：初始解检查失败（包含inf/nan非法值）
 - 102：参数检查失败（包含inf/nan非法值）
