@@ -615,7 +615,48 @@ OPTIMake可以帮助汽车工程师开发基于嵌入式MPC和机器学习的先
  -->
 
 <h2 id="license"><strong>License</strong></h2>
-<p>请联系OPTIMake获取license：<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#111;&#112;&#116;&#105;&#109;&#97;&#107;&#101;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a>。</p>
+<p>OPTIMake的license根据优化问题类型与部署平台进行区分。</p>
+<table>
+<thead>
+<tr>
+<th>优化问题类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s</code></td>
+<td>支持LP, QP, QCQP类型问题求解</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>支持LP, QP, QCQP, NLP, MIP类型问题求解</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>部署平台</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>host</code></td>
+<td>Host环境（Windows/Linux），求解器可在x86/x86_64平台运行，通过二进制库集成</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>测试环境，求解器可在x86/x86_64/ARMv8/ARMv7等多种平台运行，通过二进制库集成</td>
+</tr>
+<tr>
+<td><code>commercial</code></td>
+<td>生产环境，求解器可在x86/x86_64/ARMv8/ARMv7等多种平台运行，通过源代码集成</td>
+</tr>
+</tbody>
+</table>
+<p>例：如果问题类型为NLP且需要在ARM环境进行测试，那么对应的license为<code>s-test</code>。</p>
 <!-- E-mail支持
 
 如果出现技术问题，请联系OPTIMake支持：optimake@outlook.com。为了加快这一过程，我们建议您提供以下信息：
