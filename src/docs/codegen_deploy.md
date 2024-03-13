@@ -11,7 +11,7 @@
 !!! Note
 
     代码生成需要将problem，option与user info通过json格式上传至OPTIMake服务器。该过程需要联网，所有上传的json数据均对用户透明（所有的客户端代码均开源且包含在安装包中）。
-    代码生成服务亦可用户本地部署（需要commercial license），请联系OPTIMake获取支持。
+    代码生成服务亦可用户本地部署（需要production license），请联系OPTIMake获取支持。
 
 ## **代码生成**
 下面为代码生成的例子：
